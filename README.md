@@ -1,27 +1,6 @@
-#  AmbuFlow
+#  Res-Q-Rush
 
 <br>
-
-<table align="center">
-    <thead align="center">
-        <tr border: 2px;>
-            <td><b> Stars</b></td>
-            <td><b> Forks</b></td>
-            <td><b> Issues</b></td>
-            <td><b> Open PRs</b></td>
-            <td><b> Close PRs</b></td>
-        </tr>
-     </thead>
-    <tbody>
-         <tr>
-            <td><img alt="Stars" src="https://img.shields.io/github/stars/mansiruhil13/Bobble-AI?style=flat&logo=github"/></td>
-             <td><img alt="Forks" src="https://img.shields.io/github/forks/mansiruhil13/Bobble-AI?style=flat&logo=github"/></td>
-            <td><img alt="Issues" src="https://img.shields.io/github/issues/mansiruhil13/Bobble-AI?style=flat&logo=github"/></td>
-            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/mansiruhil13/Bobble-AI?style=flat&logo=github"/></td>
-           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/mansiruhil13/Bobble-AI?style=flat&color=critical&logo=github"/></td>
-        </tr>
-    </tbody>
-</table>
 
 ## Table of Contents
 - [DESCRIPTION](#description)
@@ -29,8 +8,6 @@
 - [Problem Statement](#problem-statement)
 - [Solution](#solution)
 - [Key Features](#key-features)
-- [Contributing](#contributing)
-- [Contribution Guidelines](#contribution-guidelines)
 - [Tech Stack](#tech-stack)
 - [User-Friendly Experience](#user-friendly-experience)
 - [Future Enhancements](#future-enhancements)
@@ -81,67 +58,6 @@ The built-in map feature shows exact hospital locations, provides directions, an
 2. **Hospital Alerts**: Sends patients notifications about nearby hospitals for quicker medical assistance.
 3. **Distance & Traffic Analysis**: Calculates the fastest routes based on real-time traffic and distance.
 4. **Driver Management**: Streamlines driver schedules and activities for efficient ambulance deployment.
-
-## Contributing
-
-We welcome all contributions from the open-source community! If you'd like to contribute, follow these steps:
-
-1. **Fork the repository**:
-```bash
-git clone https://github.com/yourusername/AmbuFlow.git
-```
-
-2. **Create a new feature branch**:
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. **Commit your changes**:
-```bash
-git add .
-git commit -m "Add feature description"
-```
-
-4. **Push to the branch**:
-```bash
-git push origin feature/your-feature-name
-```
-
-5. **Open a Pull Request**: Go to your forked repo on GitHub and click "New Pull Request."
-
-## How to run the project:
-
-1. Go to Backend folder and run command:
-```bash
-npm install
-```
-
-2. Make mongodb database.
-
-3. Go to server.js file and give your mongodb connection URL.
-
-4. Run command:
-```bash
-node server.js
-```
-
-5. Split terminal and go to index.html and open it with live server.
-
-6. make sure that both Backend and index.html file run togethere.
-   
-## Contribution Guidelines:
-
-We welcome all contributions to improve **AmbuFlow** If you would like to contribute, please follow the [Contributing.md](./Contributing.md) to know how to get started.
-
-To maintain quality and consistency, please follow these best practices:
-
-1. **Code Style**: Write clean, readable code following the project's coding style. Comments are highly appreciated.
-2. **Commits**: Use meaningful commit messages that clearly describe the purpose of the changes.
-3. **Pull Requests**: Keep PRs focused, well-explained, and reference any relevant issues.
-4. **Testing**: Ensure all changes are thoroughly tested locally and do not break existing functionality.
-
-
-Refer to [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details on our community guidelines.
 
 ## Tech Stack
 
