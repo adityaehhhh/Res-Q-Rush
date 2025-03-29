@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Res-Q-Rush</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        header.sticky {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            animation: logoAnimation 1s ease forwards;
+        }
+
+        .brand-name {
+            display: flex;
+            margin-right: 10px;
+        }
+
+        .letter {
+            font-size: 2rem;
+            animation: letterDrop 0.5s ease forwards;
+        }
+
+        .red { color: red; }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 2px solid #000;
+            border-radius: 12px;
+            color: #000;
+            font-weight: bold;
+            background-color: white;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #1b9bff;
+            color: white;
+        }
+
+        nav ul li a.active {
+            background-color: #1b9bff;
+            color: white;
+        }
+
+        nav ul li a i {
+            margin-right: 8px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .emergency-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .emergency-buttons a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #000;
+            transition: transform 0.3s;
+        }
+
+        .emergency-buttons a:hover {
+            transform: translateY(-5px);
+        }
+
+        .emergency-buttons img {
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .location-section {
+            margin: 40px 0;
+        }
+
+        .location-section button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #e81a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .location-section button:hover {
+            background-color: #c41515;
+        }
+
+        footer {
+            background-color: #C4D7FF;
+            padding: 40px 20px;
+            color: #000;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        footer h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer a {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #1b9bff;
+        }
+
+        @media (max-width: 858px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 20px;
+                background: #fff;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .checkbtn {
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        }
+
+        /* Animations */
+        @keyframes logoAnimation {
+            0% { opacity: 0; transform: translateX(-100px); }
+            50% { transform: translateX(10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes letterDrop {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { transform: translateY(10px); opacity: 1; }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky">
+        <div class="container">
+            <div class="logo">
+                <div class="brand-name">
+                    <span class="letter red">R</span>
+                    <span class="letter red">E</span>
+                    <span class="letter red">S</span>
+                    <span class="letter red">-</span>
+                    <span class="letter">Q</span>
+                    <span class="letter">-</span>
+                    <span class="letter">R</span>
+                    <span class="letter">U</span>
+                    <span class="letter">S</span>
+                    <span class="letter">H</span>
+                </div>
+                <a href="./index.html">
+                    <img src="images/logo2-w.webp" alt="Logo" style="width: 50px; height: auto">
+                </a>
+            </div>
+            <i class="fas fa-bars checkbtn" onclick="toggleMenu()"></i>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html" id="home-link" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="features.html" id="features-link"><i class="fa-solid fa-file"></i> Features</a></li>
+                    <li><a href="team.html" id="team-link"><i class="fa-solid fa-user-group"></i> Team</a></li>
+                    <li><a href="contact.html" id="contact-link"><i class="fa-solid fa-clipboard"></i> Contact</a></li>
+                    <li><a href="Feedback.html" id="feedback-link"><i class="fa-solid fa-user-group"></i> Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="content">
+        <h1>SOS / Quick Emergency Response</h1>
+        
+        <div class="location-section">
+            <button onclick="getLocation()">Locate Me</button>
+            <p id="location"></p>
+            <p id="address"></p>
+        </div>
+
+        <div class="emergency-buttons" style="border: none; background: none; cursor: pointer;">
+            <a href="tel:100" >
+                <img src="police.svg" alt="Police">
+                <p>Police</p>
+            </a>
+            <a href="tel:101" style="border: none; background: none; cursor: pointer;">
+                <img src="ambulance.svg" alt="Ambulance" >
+                <p>Ambulance</p>
+            </a>
+            <a onclick="findNearestHospital()" style="border: none; background: none; cursor: pointer;">
+                <img src="hospital.svg" alt="Hospital">
+                <p>Nearest Hospital</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact Info</h3>
+                <p>GGSIPU, Delhi, India</p>
+                <p><a href="mailto:emergency@ambulanceservice.in">abc@gmail.in</a></p>
+                <p>Phone: <a href="tel:+91-911-1234567">+91-911-1234567</a></p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i> Facebook</a></p>
+                <p><a href="https://www.twitter.com"><i class="fa-brands fa-x-twitter"></i> Twitter</a></p>
+                <p><a href="https://www.instagram.com"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <hr>
+        <p style="text-align: center">© 2024 Res-Q-Rush. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav ul').classList.toggle('active');
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("location").innerHTML = "Geolocation not supported.";
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            document.getElementById("location").innerHTML = `Latitude: ${lat}<br>Longitude: ${lon}`;
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("address").innerHTML = `Location: ${data.display_name}`;
+                })
+                .catch(error => {
+                    document.getElementById("address").innerHTML = "Unable to retrieve location.";
+                });
+        }
+
+        function showError(error) {
+            const location = document.getElementById("location");
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    location.innerHTML = "Location permission denied.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    location.innerHTML = "Location unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    location.innerHTML = "Location request timed out.";
+                    break;
+                default:
+                    location.innerHTML = "An error occurred.";
+            }
+        }
+
+        window.onload = function() {
+            const letters = document.querySelectorAll('.letter');
+            letters.forEach((letter, index) => {
+                letter.style.animationDelay = `${index * 0.1}s`;
+            });
+        };
+
+        function findNearestHospital() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                const mapsUrl = `https://www.google.com/maps/search/Hospital+near+me/@${lat},${lon},15z`;
+                window.open(mapsUrl, "_blank");
+            }, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+    </script>
+</body>
+</html>

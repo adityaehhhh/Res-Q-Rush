@@ -1,0 +1,22 @@
+.container{
+    width:100%;
+}
+.logo{
+    margin-top:1rem;
+}
+nav{
+    margin-top:0.3rem;
+}
+.outer-options{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buttons div a{
+    font-size: 2rem;
+}

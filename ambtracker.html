@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambulance GPS Tracking System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- TomTom Maps API -->
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.19.0/maps/maps-web.min.js"></script>
+  <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.19.0/maps/maps.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: #f5f5f5;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* Ambulance Icon */
+    .ambulance-icon {
+      width: 32px;
+      height: 32px;
+      background-image: url('ambulance.png'); /* Ensure this image exists */
+      background-size: cover;
+    }
+
+    /* User Location Pin (Blue) */
+    .location-pin {
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/88/Map_marker.svg'); /* Blue Pin */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script>
+    let map, movingAmbulanceMarker, userLocationMarker;
+    let ambulancePosition = { lat: 28.7, lon: 77.1 };
+    
+    // 🔹 SET YOUR LOCATION HERE (Modify if needed)
+    let userLocation = { lat: 28.705, lon: 77.102 }; 
+
+    function initMap() {
+      map = tt.map({
+        key: "F1rrGQCS9lK5NTmyULz2GzhyeTyVc6cS",
+        container: "map",
+        center: userLocation,
+        zoom: 14
+      });
+
+      // 🟦 Add USER LOCATION PIN (BLUE) - Adjusting Anchor for Visibility
+      userLocationMarker = new tt.Marker({
+        element: createLocationPin(),
+        anchor: "bottom" // Ensures pin points properly
+      }).setLngLat([userLocation.lon, userLocation.lat]).addTo(map);
+
+      // 🚑 Add moving ambulance marker
+      movingAmbulanceMarker = new tt.Marker({ element: createAmbulanceIcon() })
+        .setLngLat([ambulancePosition.lon, ambulancePosition.lat])
+        .addTo(map);
+
+      // 🚑 Add 5 random ambulances
+      addAmbulanceMarkers(5);
+
+      // 🔄 Update moving ambulance position every 5 seconds
+      setInterval(updateAmbulancePosition, 5000);
+    }
+
+    function addAmbulanceMarkers(count) {
+      for (let i = 0; i < count; i++) {
+        let randomLat = ambulancePosition.lat + (Math.random() * 0.02 - 0.01);
+        let randomLon = ambulancePosition.lon + (Math.random() * 0.02 - 0.01);
+
+        let marker = new tt.Marker({ element: createAmbulanceIcon() })
+          .setLngLat([randomLon, randomLat])
+          .addTo(map);
+      }
+    }
+
+    function updateAmbulancePosition() {
+      ambulancePosition.lat += (Math.random() * 0.001 - 0.0005);
+      ambulancePosition.lon += (Math.random() * 0.001 - 0.0005);
+
+      movingAmbulanceMarker.setLngLat([ambulancePosition.lon, ambulancePosition.lat]);
+    }
+
+    function createAmbulanceIcon() {
+      let icon = document.createElement("div");
+      icon.className = "ambulance-icon";
+      return icon;
+    }
+
+    function createLocationPin() {
+      let pin = document.createElement("div");
+      pin.className = "location-pin";
+      return pin;
+    }
+
+    window.onload = initMap;
+  </script>
+</body>
+</html>

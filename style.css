@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333; /* Header background color */
+    padding: 10px 20px; /* Padding around header */
+}
+
+.container {
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center elements vertically */
+}
+
+.logo img {
+    width: 50px; /* Logo width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav {
+    flex-grow: 1; /* Allow nav to grow */
+}
+
+.menu ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Flexbox for horizontal alignment */
+}
+
+
+.menu a {
+    color: white; /* Menu link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Transition effect */
+}
+
+.menu a:hover {
+    color: #ddd; /* Change color on hover */
+}
+
+.buttons {
+    display: flex; /* Flexbox for buttons */
+}
+
+.buttons .login,
+.buttons .get-started {
+    margin-left: 10px; /* Spacing between buttons */
+    padding: 8px 16px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Button text color */
+    background-color: #007bff; /* Button background color */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.buttons .login:hover,
+.buttons .get-started:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Stack bars vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.menu-toggle .bar {
+    height: 4px; /* Height of menu bar */
+    width: 25px; /* Width of menu bar */
+    background-color: white; /* Bar color */
+    margin: 3px 0; /* Spacing between bars */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Hide menu by default */
+        width: 100%; /* Full width */
+        flex-direction: column; /* Stack items vertically */
+        position: absolute; /* Absolute positioning */
+        top: 60px; /* Position below the header */
+        left: 0; /* Align to the left */
+        background-color: #333; /* Background color */
+        z-index: 1; /* Above other content */
+    }
+
+    .menu ul {
+        flex-direction: column; /* Stack items vertically */
+        width: 100%; /* Full width */
+    }
+
+    .menu li {
+        text-align: center; /* Center text */
+        margin: 10px 0; /* Vertical spacing */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show menu toggle */
+    }
+
+    .menu.show {
+        display: flex; /* Show menu when toggled */
+    }
+}
+

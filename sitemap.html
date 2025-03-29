@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+    <title>Site Map - Res-Q-Rush</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #262b30;
+        color: #d1d1d1;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Full viewport height */
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #0d47a1;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+      }
+      .logo-title img {
+        width: 50px;
+        margin-right: 15px;
+      }
+      .logo-title h1 {
+        color: #fff;
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+      }
+      main {
+        display: flex;
+        max-width: 1200px;
+        margin: 50px auto;
+        background-color: #10141b;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+        flex: 1;
+        width: 100%; /* Ensure main content uses full width */
+      }
+      .content {
+        padding: 50px;
+        flex: 1;
+        background-color: transparent; /* Make it transparent or set another color */
+      }
+      .content ul {
+        list-style: none;
+        padding: 0;
+      }
+      .content ul li {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+      .content ul li a {
+        color: #d1d1d1;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .content ul li a:hover {
+        color: #1e88e5;
+      }
+      .map-header iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .map-header {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0b0e11;
+      }
+      main {
+        height: auto;
+      }
+      footer {
+        background-color: #0d47a1;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+      }
+      .map-header {
+        height: auto; /* Allow dynamic sizing */
+      }
+      .content,
+      .map-header {
+        flex: 1 1 auto; /* Ensure equal height with flexibility */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-title">
+        <img src="images/logo2-w.webp" alt="Ambulance Monitoring System Logo" />
+        <h1>Res-Q-Rush</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="content">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Feedback.html">Feedback</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="login.html">Log In</a></li>
+          <li><a href="up.html">Get Started</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="map-header">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d241294.64898498365!2d72.79635424219836!3d19.09761203283721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s123%20Emergency%20Lane%2C%20Mumbai%2C%20India!5e0!3m2!1sen!2sin!4v1728732339444!5m2!1sen!2sin"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2024 Res-Q-Rush - All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
+
+

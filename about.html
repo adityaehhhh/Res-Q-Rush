@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+
+    <title>About Us - Res-Q-Rush</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+     <!--Updated to latest version-->
+
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #E4EAF1; /* Change from #0b0e11 */
+        color: #000000; /* Change from #d1d1d1 */
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      header {
+        background-color: #E4EAF1;
+        text-align: center;
+      }
+
+      .container{
+        background-color: #E4EAF1;
+      }
+
+
+      main {
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #ffff;
+      }
+
+      main p{
+        color: #555555;
+      }
+      main ul li{
+        color: #555555;
+      }
+
+      .buttons{
+        padding: 10px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      .login{
+        color: black;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+
+      .login:hover{
+        background-color: #91919175;
+      }
+
+    .get-started{
+      background-color: #2980B9;
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    .logo{
+      width: min-content;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    .logo p:nth-child(1){
+      color: #ff0000;
+    }
+    .logo p:nth-child(2){
+      color: #2980B9;
+    }
+
+    .brand-name{
+      display: flex;
+      align-items: center;
+      
+    }
+
+    .brand-name p{
+      margin: 0;
+      font-size: 2.5vw;
+      font-weight: 600;
+    }
+
+    .logo img{
+        width: 5vw;
+        padding-left: 5px;
+    }
+
+    .container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+      h1{
+        font-size: 4vw;
+        text-align: center;
+        margin: 0;
+        color: #5875B3;
+      }
+
+      h2 {
+        color: #2980B9;
+        font-size: 2.5rem;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      p {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .highlight {
+        color: #e53935; /* Change from #f50057 */
+        font-weight: bold;
+      }
+
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 25px;
+        font-size: 1.1rem;
+      }
+
+      ul li::before {
+        color: #000000; /* Change from #1e88e5 */
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      footer {
+        background-color: #333333; /* Change from #0d47a1 */
+        color: #f3f4f6; /* Change from #ffffff */
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        background-color: #1e88e5;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background-color: #42a5f5;
+        transform: scale(1.05);
+      }
+
+      /* Futuristic glow effect for text */
+      /* h1,
+      h2 {
+        text-shadow: 0 0 10px rgba(30, 136, 229, 0.8),
+          0 0 20px rgba(66, 165, 245, 0.5);
+      } */
+
+      /* Futuristic neon glow for sections */
+      main {
+        color:#0344f6;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 3rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      /* Navbar Styles */
+      .menu {
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 10px;
+        background-color: #f0f0f0; /* Light background color */
+        border-radius: 25px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+
+      .nav-links li {
+        margin: 0 15px; /* Space between links */
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333; /* Dark text color */
+        font-weight: 500; /* Medium font weight */
+        transition: color 0.3s; /* Smooth color transition */
+      }
+
+      .nav-links a:hover {
+        color: #007bff; /* Change color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div class="container">
+          <div class="logo">
+            <div class="brand-name">
+              <p>Ambu</p>
+              <p>Flow</p>
+            </div>
+           
+            <img src="images/logo2-w.webp" alt="">
+          </div>
+             <div class="buttons">
+                <a href="login.html" class="login">Log in</a>
+                <a href="signup.html" class="get-started">Sign up</a>
+              </div>
+        </div>
+          
+          
+        </div>
+        
+      </header>
+
+      <nav class="menu">
+
+        <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top">
+          <div class="scroll-top-icon">
+              <i class="fa-solid fa-arrow-up"></i>
+          </div>
+          <svg class="progress-ring" width="60" height="60">
+              <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30" cy="30"></circle>
+          </svg>
+        </button>
+
+        <ul class="nav-links">
+          <li>
+            <a href="./index.html" id="home-link" onclick="changeContent('home')">Home</a>
+          </li>
+          <li>
+            <a href="features.html" id="features-link" onclick="changeContent('features')">Features</a>
+          </li>
+          <li>
+            <a href="team.html" id="team-link" onclick="changeContent('team')">Team</a>
+          </li>
+          <li>
+            <a href="contact.html" id="contact-link" onclick="changeContent('contact')">Contact</a>
+          </li>
+          <li>
+            <a href="Feedback.html" id="feedback-link" onclick="changeContent('feedback')">Feedback</a>
+          </li>
+          <li>
+            <a href="nearby.html" id="nearby-link" onclick="changeContent('nearby')">Nearby</a>
+          </li>
+        </ul>
+      </nav>
+      <h1 >About Res-Q-Rush</h1>
+    <main>
+      <h2>Who We Are</h2>
+      <p>
+        <span class="highlight">Res-Q-Rush</span> is a dynamic project developed
+        under Bobble AI, combining cutting-edge technology and healthcare
+        expertise to revolutionize emergency medical response. Our core goal is
+        to create faster, more efficient communication between patients,
+        ambulances, and hospitals during critical times.
+      </p>
+
+      <p>
+        Using advanced features like <strong>real-time GPS tracking</strong> and
+        <strong>Google Maps integration</strong>, we ensure that the nearest
+        medical help is always accessible when needed the most. Res-Q-Rush helps
+        save lives by reducing response times in emergencies.
+      </p>
+
+      <h2>Our Vision</h2>
+      <p>
+        We envision a future where emergency services are fast, accessible, and
+        reliable for everyone. Our platform is designed to transform how medical
+        assistance is delivered, helping to reduce the time it takes to respond
+        to emergency situations, and ultimately improving healthcare outcomes
+        for communities worldwide.
+      </p>
+
+      <h2>Why Res-Q-Rush?</h2>
+      <ul>
+        <li>
+          <strong>Quick Emergency Response:</strong> Connect with the closest
+          medical services and ambulances through real-time tracking.
+        </li>
+        <li>
+          <strong>Real-Time Navigation:</strong> Optimized routes for
+          ambulances, considering real-time traffic updates, to ensure the
+          fastest response time.
+        </li>
+        <li>
+          <strong>Seamless Communication:</strong> Simplifying communication
+          between patients, hospitals, and ambulance drivers to ensure efficient
+          medical care coordination.
+        </li>
+        <li>
+          <strong>Resource Optimization:</strong> Hospitals can manage incoming
+          patients and resources with better precision using live data from the
+          app.
+        </li>
+        <li>
+          <strong>Simple User Interface:</strong> Our interface is easy to
+          navigate, even in high-stress situations, so users can quickly get
+          help.
+        </li>
+      </ul>
+
+      <h2>Our Technology</h2>
+      <ul>
+        <li>
+          <strong>HTML 📝:</strong> Used to build the core structure of our web
+          application.
+        </li>
+        <li>
+          <strong>CSS 🎨:</strong> Brings style and aesthetics to our app,
+          creating a pleasant user experience.
+        </li>
+        <li>
+          <strong>JavaScript 💻:</strong> Provides dynamic real-time ambulance
+          and hospital tracking functionality.
+        </li>
+        <li>
+          <strong>Google API Keys 🔑:</strong> Enables integration of Google
+          Maps for precise tracking and location data.
+        </li>
+      </ul>
+
+      <h2>Support Us</h2>
+      <p>
+        We believe that <strong>Res-Q-Rush</strong> can make a significant impact
+        in the healthcare sector. You can support us by contributing to our
+        project on GitHub, sharing it with others, or simply giving us a star!
+        Your support will help us continue to enhance emergency medical services
+        across the globe.
+      </p>
+      
+    </main>
+    <footer style="background-color:#A7CCF0; color:#000000; text-align: center; width: 100%; margin-top: 20px;">
+        <div style="background-color: #A7CCF0; color: #000000; ">      
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+  
+          <!-- Quick Links Section -->
+          <div 
+          style="flex: 1; 
+          display: flex;
+          flex-direction: column; 
+          align-items: start; 
+          min-width: 200px; 
+          margin-bottom: 20px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Quick Links</h3>
+            <ul style="list-style-type: none; padding: 0;">
+              <li><a href="about.html" style="color: #000000; background:none; cursor: pointer; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">About Us</a></li>
+              <li><a href="contact.html" style="color: #000000; background:none; cursor: pointer; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">Contact Us</a></li>
+              <li><a href="privacy.html" style="color: #000000; background:none; cursor: pointer; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">Privacy Policy</a></li>
+              <li><a href="terms.html" style="color: #000000; background:none; cursor: pointer; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">Terms of Service</a></li>
+              <li><a href="sitemap.html" style="color: #000000;background:none; cursor: pointer; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">Site Map</a></li>
+              <!-- Add FAQ link here -->
+              <li><a href="faq.html" style="color: #000000;background:none; cursor: pointer; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">FAQ</a></li>
+            </ul>
+          </div>
+  
+          <!-- Contact Information Section -->
+          <div 
+          style="flex: 1; 
+          min-width: 200px; 
+          margin-bottom: 10px;">
+            <h3 style="font-size: 1.5rem; color: #2980b9;">Contact Info</h3>
+            <p style="color: #000;">GGSIPU, Delhi, India</p>
+            <a href="mailto:emergency@ambulanceservice.in" style="color: #000000; background:none; cursor: pointer;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">abc@gmailin</a></p>
+            <p style="color: #000000;">Phone: <a href="tel:+91-911-1234567" style="color: #000000; background: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">+91-911-1234567</a></p>
+          </div>
+  
+          <!-- Modified the looks of the social icons -->
+          <!-- Social Media Links -->
+          <div style="text-align: center; min-width: 200px; color: black;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Follow Us</h3>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+              <a href="https://www.facebook.com" target="_blank" class="social-icon facebook no-hover-effect"
+                style="color: black; text-decoration: none; font-size: 24px;"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.twitter.com" target="_blank" class="social-icon twitter no-hover-effect"
+                style="color: black; text-decoration: none; font-size: 24px;"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com" target="_blank" class="social-icon instagram no-hover-effect"
+                style="color: black; text-decoration: none; font-size: 24px;"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin no-hover-effect"
+                style="color: black; text-decoration: none; font-size: 24px;"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+  
+          <!-- Newsletter Subscription -->
+          <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Subscribe to Our Newsletter</h3>
+            <form action="#">
+              <i class="fas fa-envelope" style="position: absolute; top: 8.60rem; right: 23.5rem; color: gray; font-size: 13px;"></i>
+              <input type="email" placeholder="Your Email"
+                style="padding: 10px; width: 80%; border: none; border-radius: 5px; padding-left: 27px;" required><br><br>
+              <button type="submit"
+                style="background-color: #e81a1a; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">Subscribe</button>
+            </form>
+          </div>        
+          <style>
+            .hover-link {
+              color: #000000;
+              text-decoration: none;
+              margin-right: 10px;
+              background:none;
+              cursor: pointer;
+              transition: color 0.3s ease;
+            }
+          
+            .hover-link:hover {
+              color: blue;
+              background:none;
+            }
+
+            .scroll-top {
+        position: fixed;
+        right: 1.6%;
+        background: linear-gradient(100deg, #1ca6f0, #3c7aff, #05deff);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        overflow: visible;
+        z-index: 10;
+        bottom: 75px;
+        /* Ensure button is on top */
+    }
+
+    .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .scroll-top:hover {
+        transform: scale(1.1);
+        /* Subtle scaling instead of expanding */
+        box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
+        /* Slightly larger shadow */
+    }
+
+    .scroll-top:active {
+        transform: scale(1.05);
+        /* Minor scale reduction on click */
+    }
+
+    .scroll-top-icon {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.3s ease;
+    }
+
+    .scroll-top:hover .scroll-top-icon {
+        transform: translateY(-3px);
+    }
+
+    /* Progress Ring Styling */
+    .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+        /* To start from the top */
+    }
+
+    .progress-ring__circle {
+        transition: stroke-dashoffset 0.35s;
+        transform-origin: 50% 50%;
+    }
+    .scroll-top:hover {
+        animation: pulse 1.5s infinite;
+    }
+
+    .scroll-top.show {
+        animation: none;
+        /* No animation when showing the button */
+    }
+
+    .scroll-top.show:hover {
+        animation: pulse 1.5s infinite;
+        /* Pulse on hover */
+    }
+          </style>
+  
+        </div>
+  
+      </div>
+    </footer>
+
+    <div style="background-color: #000000;">
+        <p>© 2024 Res-Q-Rush - All Rights Reserved</p>
+    </div>
+  
+    <script>
+      // Get the button
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      const progressCircle = document.querySelector(".progress-ring__circle");
+      const radius = progressCircle.r.baseVal.value;
+      const circumference = 2 * Math.PI * radius;
+  
+      // Set the circle progress properties
+      progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+      progressCircle.style.strokeDashoffset = circumference;
+  
+      // Function to show or hide the button based on scroll position
+      function toggleScrollButton() {
+          if (window.scrollY > 100) {
+              scrollToTopBtn.classList.add("show");
+          } else {
+              scrollToTopBtn.classList.remove("show");
+          }
+      }
+  
+      // Function to set the scroll progress on the button ring
+      function setProgress(percent) {
+          const offset = circumference - (percent / 100) * circumference;
+          progressCircle.style.strokeDashoffset = offset;
+      }
+  
+      // Listen for scroll events to update button visibility and progress
+      window.addEventListener("scroll", () => {
+          toggleScrollButton();
+          const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+          setProgress(scrollPercent);
+      });
+  
+      // Smooth scroll to top when the button is clicked
+      scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+          });
+      });
+    </script>
+
+  </body>
+</html>
+
+
