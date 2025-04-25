@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 9px;
+    transition: width 0.3s ease;
+    margin: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(216, 216, 216, 0.74);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+html::-webkit-scrollbar-thumb:window-inactive {
+    background: rgb(156, 156, 156);
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e4eaf1;
+}
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+}
+
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #EEEEEE;
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #DC5F00;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index: 99999;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #373A40;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #686D76;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: all 0.3s 1s ease-out;
+    transition: all 0.3s 1s ease-out;
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.brand-name {
+    font-family: 'poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #2980B9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logo {
+    display: flex;
+    /* margin-right: 60rem; */
+    margin-top: 0.7rem;
+    animation: logoAnimation 1s ease forwards;
+}
+
+/* Logo Animation */
+@keyframes logoAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+        /* Start from the left */
+    }
+
+    50% {
+        transform: translateX(10px);
+        /* Move slightly to the right */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        /* End at original position */
+    }
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo img {
+    margin: 0 5px;
+}
+
+.logo span {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    bottom: 1rem;
+    /* bottom: 38rem; */
+    z-index: 1000;
+}
+
+.menu ul {
+    background-color: rgb(240, 236, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.40);
+    list-style: none;
+    padding: 0.6rem 0.4rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.menu_links {
+    padding: 0.55rem;
+    color: rgb(78, 77, 77);
+    text-decoration: none;
+    font-size: 13.5px;
+    display: block;
+    border-radius: 50px;
+    position: relative;
+}
+
+.menu_links.active {
+    color: white;
+    background-color: #000;
+}
+
+.menu ul li {
+    margin-left: 7px;
+}
+
+.menu ul li:first-child {
+    margin-left: 3px;
+}
+
+.menu ul li:first-child a {
+    padding: 5px 8px;
+    position: relative;
+    top: 3px;
+    /* transform: translateY(2px); */
+    color: #373A40;
+}
+
+.menu ul li:first-child:hover {
+    background-color: rgb(226, 223, 223);
+    border-radius: 50%;
+}
+
+.menu_links span {
+    display: block;
+    transition: 0.5s;
+}
+
+.menu_links:hover span {
+    transform: translateY(-70px);
+}
+
+.menu_links:hover {
+    background-color: rgb(226, 223, 223);
+    /* background-color: rgb(226, 223, 223); */
+    transition: 0.5s;
+}
+
+.menu_links::before {
+    content: "";
+    position: absolute;
+    content: attr(data-link);
+    top: 100%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.menu_links:hover:before {
+    top: 20%;
+    opacity: 1;
+}
+
+.menu_links.active:hover {
+    color: white;
+    background-color: #000;
+}
+
+.menu_links.active:before {
+    color: white;
+}
+
+.button{
+    text-decoration: none;
+    background-color: black;
+    padding: 10px;
+    border-radius: .5em;
+    color: orange;
+}
+
+.button:hover{
+    background-color: #ea9700;
+    color: #161616;
+    transition: 100ms ease-in-out;
+}
+
+.chatbot-container {
+    position: fixed;
+    transition: right 0.3s ease;
+    bottom: 20px;
+    /* Adjust as needed */
+    left: 90px;
+    /* Adjust as needed */
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+}
+
+.chatbot-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    /* Smaller padding */
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    /* Adjusted size */
+    height: 50px;
+    /* Adjusted size */
+    right: -60px;
+}
+
+.chatbot-button img {
+    width: 30px;
+    /* Adjusted image size */
+    height: 30px;
+    /* Adjusted image size */
+}
+
+.chatbot-button img {
+    width: 30px;
+    /* Adjusted image size */
+    height: 30px;
+    /* Adjusted image size */
+}
+
+.tooltip-text {
+    display: none;
+    /* Hide by default */
+    position: absolute;
+    bottom: 100%;
+    /* Position above the button */
+    right: 50%;
+    transform: translateX(50%);
+    background-color: #333;
+    /* Background color for tooltip */
+    color: #fff;
+    /* Tooltip text color */
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+}
+
+.chatbot-button:hover .tooltip-text {
+    display: block;
+    /* Show on hover */
+}
+
+.circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(71, 240, 255, 0.3), rgba(0, 119, 255, 0.3));
+    transition: transform 0.1s, left 0.1s, top 0.1s;
+}
+
+
+.circle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.chatbot-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    /* Smaller padding */
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    /* Adjusted size */
+    height: 50px;
+    /* Adjusted size */
+}
+
+.chatbot-button img {
+    width: 30px;
+    /* Adjusted image size */
+    height: 30px;
+    /* Adjusted image size */
+}
+
+
+.chatbot-button:hover .tooltip-text {
+    display: block;
+    /* Show on hover */
+}
+
+.dark-mode-toggle {
+    font-size: 18px;
+    /* Increase font size */
+    padding: 10px 15px;
+    /* Adjust padding for better appearance */
+}
+
+.dark-mode {
+    background-color: black;
+    /* Dark mode navbar */
+    /* color: white; */
+}
+
+
+
+.dark-mode {
+    background-color: rgba(50, 50, 50, 0.95);
+    /* Slightly gray background with high opacity */
+}
+
+
+.light-dark-btn {
+    background-color: transparent;
+    border: none;
+    position: fixed;
+    z-index: 1111;
+    right: 1rem;
+    bottom: 1rem;
+    /* Black border */
+    cursor: pointer;
+    color: black;
+    /* Default button color */
+}
+
+.light-dark-btn:hover {
+    color: blue;
+    /* Change color on hover */
+}
+
+.dark-mode .menu a {
+    color: black;
+    /* Dark mode link color */
+    /* Light grey border in dark mode */
+}
+
+.dark-mode .menu a.active {
+    color: white;
+    /* Dark mode link color */
+    /* Light grey border in dark mode */
+}
+
+.dark-mode .menu a.active:before {
+    color: white;
+    background: none;
+    /* Dark mode link color */
+    /* Light grey border in dark mode */
+}
+
+.red {
+    color: red;
+    /* Change the color of letters in this class to red */
+}
+
+.letter {
+    display: inline-block;
+    font-size: 2rem;
+    animation: letterDrop 0.5s ease forwards;
+    animation-delay: calc(var(--letter-index)* 0.1s);
+}
+
+@keyframes letterDrop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(10px);
+        /* Slight bounce */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
