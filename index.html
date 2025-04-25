@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+  <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+  <title>Res-Q-Rush</title>
+
+  <link rel="stylesheet" href="src/css/indexmain.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+
+  <link rel="stylesheet" href="src/css/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="responsive.css">
+
+  <link rel="manifest" href="/manifest.json">
+
+  <style>
+
+    
+
+      .profile-icon {
+
+      border-radius: 50%;
+      position: relative;
+      margin-left: 20px; /* Adjust space between Login button and Profile icon */
+      margin-top: 5px;
+
+      }
+
+      .dropdown-menu {
+
+      display: none;
+      position: absolute;
+      top: 35px; /* Adjust based on the height of your navbar */
+      right: 0;
+      background-color: white;
+      color: black;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      z-index: 1;
+
+      }
+
+      .dropdown-menu a {
+
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+
+      }
+
+      .dropdown-menu a:hover {
+
+      background-color: #f1f1f1;
+
+      }
+
+    .content {
+      margin: 2rem 1.2rem;
+      /* margin-bottom: 2rem; */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin: 2rem 0;
+      font-weight: bold;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 2fr 2fr;
+      gap: 2rem;
+      animation: fadeIn 1s ease-in-out;
+      margin-bottom: 3rem;
+    }
+
+    .feature {
+      background-color: #e7f3fe;
+      border-radius: 10px;
+      padding: 15px;
+      /* margin: 2rem 3rem; */
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(42, 40, 40, 0.3);
+      box-shadow: 0 4px 10px rgba(42, 40, 40, 0.3);
+    }
+
+    .feature img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+
+    .feature h2 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #555;
+    }
+
+    .sticky {
+      display: flex;
+      position: fixed;
+      background-color: #C4D7FF;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    /* display: flex;
+      position: fixed;
+      background-color: #C4D7FF;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    } */
+
+   
+
+    .checkbtn {
+      font-size: 30px;
+      color: #333;
+      float: right;
+      line-height: 80px;
+      margin-right: 40px;
+      cursor: pointer;
+      display: none;
+
+    }
+
+    #check {
+      display: none;
+    }
+
+       .fa-facebook:hover {
+      color: blue;
+      /* Icon color change to blue on hover */
+    }
+
+    .fa-x-twitter:hover {
+      color: black;
+      /* Icon color change to black on hover */
+    }
+
+    .fa-instagram:hover {
+      color: orangered;
+      /* Icon color change to orangered on hover */
+    }
+
+    .fa-linkedin:hover {
+      color: darkblue;
+      /* Icon color change to rgb(16, 13, 195) on hover */
+    }
+
+    .fa-pinterest:hover{
+      color: red;
+    }
+
+    .feature p {
+      color: #555;
+    }
+
+    .team-feature {
+      background-color: #e7ffe7;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      grid-column: 1 / -1;
+    }
+
+    .team-feature img {
+      width: 150px;
+      height: auto;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+
+    .contact-feature {
+      background-color: #f2e4aa;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      grid-column: 1 / -1;
+    }
+
+    .contact-feature img {
+      width: 150px;
+      height: auto;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    .container {
+      width: 98vw;
+    }
+
+    #contact-hvr:hover {
+      background: none;
+    }
+
+    /* faq section styles */
+    .faq-section {
+      background-color: #e7f3fe;
+      display: flex;
+      margin: 2rem 1rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .faq-h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .faq {
+      margin-bottom: 15px;
+      width: 100%;
+      /* Full width by default */
+      background-color: #000000;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq:hover {
+      background-color: #e31616;
+      /* Slight hover effect for FAQs */
+    }
+
+    .faq-question {
+      background-color: #369ef9;
+      color: whitesmoke;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background-color: whitesmoke;
+      color:#369ef9 ;
+      /* new colour on hover */
+    }
+
+    .faq-question::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #333;
+      /* Downward pointing wide "V" */
+      transition: transform 0.3s ease;
+
+      margin-right: 10px;
+    }
+
+    .faq.active .faq-question::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      opacity: 0;
+      max-height: 0;
+      /* Initially hidden */
+      overflow: hidden;
+      /* Hide content when not visible */
+      padding: 0 10px;
+      background-color: #fff;
+      transition: max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+      /* Smooth transition */
+      border-top: 1px solid #ccc;
+    }
+
+    .faq-answer p {
+      margin-bottom: 10px;
+    }
+
+    .faq.active .faq-answer {
+      opacity: 1;
+      max-height: 200px;
+      /* Set to a sufficient height to display content */
+      padding: 10px;
+      /* Adds padding when expanded */
+    }
+
+    .faq.active .faq-answer p {
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #logo img:hover {
+      background-color: #c4d7ff;
+    }
+
+    .dark-mode .light-dark-btn {
+      color: white;
+      /* Button color in dark mode */
+      /* border: 1px solid lightgrey; */
+      /* Light grey border */
+    }
+
+    .dark-mode .light-dark-btn:hover {
+      /* background-color: white; */
+      /* Background on hover in dark mode */
+      color: black;
+      /* Text color on hover in dark mode */
+    }
+
+    .dark-mode .main_content p {
+      color: wheat;
+    }
+
+    .dark-mode .content h1 {
+      color: wheat;
+
+    }
+
+    /* more addition for dark mode theme */
+
+    .dark-mode .logo img {
+      filter: brightness(0) invert(1);
+      /* Inverts the color to make it white */
+    }
+
+    .dark-mode .content {
+      background-color: rgba(50, 50, 50, 0.95);
+      /* Match body background opacity */
+      padding: 20px;
+      /* Optional: add padding for better spacing */
+    }
+
+    /* Dark mode for profile icon */
+.dark-mode .profile-icon {
+  border: 1px solid #ccc;
+}
+
+/* Dark mode dropdown menu */
+.dark-mode .dropdown-menu {
+  background-color: #333;
+  color: #f3f4f6;
+  border: 1px solid #555;
+}
+
+.dark-mode .dropdown-menu a {
+  color: #f3f4f6;
+}
+
+.dark-mode .dropdown-menu a:hover {
+  background-color: #444;
+}
+
+/* Dark mode for content */
+.dark-mode .content {
+  background-color: #333;
+  color: #f3f4f6;
+}
+
+/* Dark mode for h1 */
+.dark-mode h1 {
+  color: #f3f4f6;
+}
+
+/* Dark mode for feature */
+.dark-mode .feature {
+  background-color: #444;
+  color: #f3f4f6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode for feature images */
+.dark-mode .feature img {
+  border-color: #555;
+}
+
+/* Dark mode for feature titles and paragraphs */
+.dark-mode .feature h2 {
+  color: #8ab4f8;
+}
+
+.dark-mode .feature p {
+  color: #d1d5db;
+}
+
+/* Dark mode for team-feature and contact-feature */
+.dark-mode .team-feature,
+.dark-mode .contact-feature {
+  background-color: #333;
+  color: #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode for FAQ section */
+.dark-mode .faq-section {
+  background-color: #333;
+}
+
+.dark-mode .faq-h2 {
+  color: #f3f4f6;
+}
+
+.dark-mode .faq {
+  background-color: #444;
+  border-color: #555;
+}
+
+.dark-mode .faq-question {
+  background-color: #555;
+  color: #f3f4f6;
+}
+
+.dark-mode .faq-question:hover {
+  background-color: #666;
+  color: #8ab4f8;
+}
+
+.dark-mode .faq-answer {
+  background-color: #333;
+  color: #d1d5db;
+  border-top: 1px solid #555;
+}
+
+/* Dark mode for footer */
+.dark-mode footer {
+  background-color: #222;
+  color: #f3f4f6;
+}
+
+.dark-mode footer a {
+  color: #8ab4f8;
+}
+
+/* Dark mode for social icons */
+.dark-mode .social-icon:hover {
+  color: #8ab4f8;
+}
+
+
+    .search-box {
+          display: flex;
+          align-items: center; /* Center vertically */
+          gap: 3px; /* Space between input and button */
+          max-width: 400px; /* Optional: Set a max-width for the container */
+          margin: 0 auto; /* Optional: Center the search box container */
+        }
+    .search-box input {
+          width: 70%;
+          padding: 10px 15px;
+          border: 2px solid #007BFF; 
+          margin-bottom: 25px;
+          border-top-left-radius: 25px;
+          border-bottom-left-radius: 25px;
+          outline: none;
+          transition: 0.3s; 
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          font-size: 16px;
+          color: #333;
+        }
+        .search-box input:focus {
+          border-color: #0056b3; /* Darker border color on focus */
+          box-shadow: 0 4px 12px rgba(0, 91, 187, 0.3); /* Slightly darker shadow */
+        }
+        .search-box input::placeholder {
+          color: #999;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          background: linear-gradient(135deg, #007BFF, #0056b3); 
+          color: white;
+          border: none;
+          border-top-right-radius: 25px;
+          border-bottom-right-radius: 25px;
+          margin-bottom: 25px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: bold;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+
+        .btn:hover {
+          background: linear-gradient(135deg, #0056b3, #004080); 
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+          transform: scale(1.05); 
+        }
+
+        .btn:active {
+          background: linear-gradient(135deg, #004080, #003366);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); 
+          transform: scale(0.98); 
+        }
+
+        .footer-column h2{
+          margin-bottom: 20px;
+        }
+
+        .footer-column .social-icons a{
+          border-radius: 50%;
+        }
+
+        .use{
+          text-align: center;
+        }
+
+       .l3{
+        margin-right: 50px;
+       }
+
+       .sos-container {
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.sos-button {
+  background: linear-gradient(135deg, #ff0000, #cc0000); /* Red gradient for emergency */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+}
+
+.sos-button img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.sos-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.sos-button .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%; /* Position above the button */
+  right: 50%;
+  transform: translateX(50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+}
+
+.sos-button:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Dark mode adjustments */
+.dark-mode .sos-button {
+  background: linear-gradient(135deg, #ff3333, #e60000);
+}
+
+.dark-mode .sos-button .tooltip-text {
+  background-color: #444;
+  color: #f3f4f6;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+      <div class="box-wrap">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box three"></div>
+        <div class="box four"></div>
+        <div class="box five"></div>
+        <div class="box six"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="container">
+    <div class="logo">
+      <div class="brand-name">
+        <span class="letter red" style="--letter-index: 1;">R</span>
+        <span class="letter red" style="--letter-index: 2;">E</span>
+        <span class="letter red" style="--letter-index: 3;">S</span>
+        <span class="letter red" style="--letter-index: 4;">-</span>
+        <span class="letter" style="--letter-index: 5;">Q</span>
+        <span class="letter" style="--letter-index: 6;">-</span>
+        <span class="letter" style="--letter-index: 7;">R</span>
+        <span class="letter" style="--letter-index: 8;">U</span>
+        <span class="letter" style="--letter-index: 9;">S</span>
+        <span class="letter" style="--letter-index: 10;">H</span>
+      </div>
+      <img src="images/logo2-w.webp" alt="Ambulance Monitoring System Logo" style="width: 80px; height: auto" />
+    </div>
+    <nav class="menu">
+      <ul>
+        <li>
+          <button class="scroll-button" style="background: none; border: none; cursor: pointer;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.34314 11.5858L12 5.92893M12 5.92893L17.6568 11.5858M12 5.92893V18.0711" stroke="currentColor"></path>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <a href="index.html" id="index-link" class="menu_links" data-link="Home">
+            <span>Home</span>
+          </a>
+        </li>
+
+        <!-- <li>
+          <a href="features.html" id="features-link" class="menu_links" data-link="Features">
+            <span>Features</span></a>
+        </li> -->
+        <li>
+          <a href="team.html" id="team-link" class="menu_links" data-link="Team">
+            <span>Team</span></a>
+        </li>
+        
+        <li>
+          <a href="contact.html" id="contact-link" class="menu_links" data-link="Contact">
+            <span>Contact</span></a>
+        </li>
+        <li>
+          <a href="Feedback.html" id="contact-link" class="menu_links" data-link="Feedback">
+            <span>Feedback</span></a>
+        </li>
+        <li>
+          <a href="nearby.html" id="contact-link" class="menu_links" data-link="Nearby">
+            <span>Nearby</span></a>
+        </li>
+        <li>
+          <a href="signup.html" id="contact-link" class="menu_links" data-link="Signup/Register">
+            <span>Signup/Register</span></a>
+        </li>
+
+        <!-- Profile Icon -->
+        <li class="nav-item no-underline">
+          <a href="./profile.html" class="profile-link" style="display: flex; align-items: center; text-decoration: none;">
+              <img id="homeProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" 
+                  alt="Profile Icon" 
+                  style="width: 30px; height: 30px; border-radius: 50%; margin-right: 4px;">
+          </a>
+        </li>
+
+        <script>
+          
+          document.addEventListener("DOMContentLoaded", function() {
+          // Retrieve the saved avatar from localStorage
+          const savedAvatar = localStorage.getItem("selectedAvatar");
+
+          // If an avatar is saved, update the profile image
+          if (savedAvatar) {
+              const homeProfileImage = document.getElementById("homeProfileImage");
+              if (homeProfileImage) {
+                  homeProfileImage.src = savedAvatar;
+              }
+          }
+        });
+
+</script>
+
+     <style>
+
+       /* Override the existing hover styles */
+       .navbar-nav .nav-item .profile-link:hover {
+           background-color: transparent !important; /* Remove background color */
+           border-radius: 0 !important; /* Reset border radius */
+           transform: none !important; /* Prevent scaling */
+       }
+
+     </style>
+     
+      </ul>
+    </nav>
+
+    <div class="main_content">
+      <div class="main_heading">
+        <h1>Start Saving lives with </h1>
+        <h2 data-link_h2="Res-Q-Rush...">Res-Q-Rush...</h2>
+        <p>Res-Q-Rush is ambulance tracking site which helps you to find the nearest hospitals and get access to nearest
+          ambulances and save lives</p>
+        <div class="buttons">
+          <a href="hospital.html" class="get-started">Get started <ion-icon name="log-in-outline"></ion-icon></a>
+        </div>
+      </div>
+      <div class="gif">
+        <img src="images/ambulance-gif.gif"></img>
+      </div>
+    </div>
+
+  </div>
+  <div class="content" id="grid-content">
+    <h1>Welcome to the Ambulance Monitoring System</h1>
+    <div class="grid">
+      <div class="feature" onclick="window.location.href='SOS.html'" style="cursor: pointer;">
+        <img src="images/hospi.jpg" alt="24/7 Availability" />
+        <h2>Nearby Hospitals</h2>
+        <p>
+          Ensures round-the-clock service, making sure that help is just a
+          call away, anytime, anywhere.
+        </p>
+      </div>
+
+      <div class="feature" onclick="window.location.href='ambtracker.html'" style="cursor: pointer;">
+        <img src="images/ambulance-w.jpg" alt="Real-Time Tracking" />
+        <h2>Real-Time Tracking</h2>
+        <p>
+          Provides real-time updates on ambulance locations and traffic
+          conditions, optimizing route management.
+        </p>
+      </div>
+      <div class="feature" onclick="window.location.href='cart.html'" style="cursor: pointer;">
+        <img src="images/modular-w.webp" alt="Emergency Response" />
+        <h2>Modular Ambulance Services</h2>
+        <p>
+          The Modular Ambulance Kit uses AI/ML to analyze emergency needs 
+          and recommend tailored equipment modules, hosted on a cloud platform 
+          for real-time deployment and efficient, life-saving responses.
+        </p>
+      </div>
+
+      <div class="feature" onclick="window.location.href='chatbot.html'" style="cursor: pointer;">
+        <img src="images/bot-w.webp" alt="Emergency Response" />
+        <h2>Multilingual AI Chatbot</h2>
+        <p>
+          The Multilingual AI Chatbot and Voice Assistant leverages AI and machine learning to provide 
+          seamless text and voice interactions in multiple languages, enhancing accessibility for diverse 
+          users worldwide.
+        </p>
+      </div>
+      
+      <div class="feature" onclick="window.location.href='https://medibuddy-wapafuyfbgods5ekhas22h.streamlit.app/'" style="cursor: pointer;">
+        <img src="images/report-w.webp" alt="Emergency Response" />
+        <h2>AI Smart Report Analyzer</h2>
+        <p>
+          The Smart Report Analyzer uses AI and machine learning to automatically interpret 
+          medical reports, extracting critical insights and abnormalities to aid healthcare 
+          professionals in efficient decision-making.
+        </p>
+    </div>
+
+      <div class="feature" onclick="window.location.href='./xray/xray.html'" style="cursor: pointer;">
+        <img src="images/skull.jpg" alt="24/7 Availability" />
+        <h2>AI X-Ray Analyzer</h2>
+        <p>
+          Ensures round-the-clock service, making sure that help is just a
+          call away, anytime, anywhere.
+        </p>
+      </div>
+
+      <!-- Team Section in Full Row -->
+      <div class="team-feature">
+        <img src="images/team-w.png" alt="Meet the Team" />
+        <div class="team-feature-details">
+          <h2>Meet the Team</h2>
+          <p>
+            Learn more about our dedicated team working tirelessly to ensure
+            efficient ambulance monitoring and resource management.
+          </p>
+          <a href="team.html" class="button">Go to Team</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section in Full Row -->
+    <div class="contact-feature">
+      <img src="images/contact-w.avif" alt="Contact Us" />
+      <div>
+        <h2>Contact Us</h2>
+        <p>
+          Reach out to us for any inquiries or assistance. We're here to
+          help you 24/7 with our emergency services.
+        </p>
+        <a href="contact.html" class="button">Go to Contact</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FAQ Section in Full Row -->
+
+  <div class="contact-feature faq-section" id="faq-section">
+    <div class="faq-hd">
+      <div class="faq-h2">Frequently Asked Questions [ FAQs ]</div>
+      <!-- <div>Frequently Asked Questions</div> -->
+    </div>
+    <div class="faqs">
+
+      <div class="faq">
+        <button class="faq-question">What should I do while waiting for the ambulance?</button>
+        <div class="faq-answer">
+          <p>Stay calm, ensure the patient is in a safe environment, and prepare any relevant medical information. If
+            possible, clear a path for the ambulance and stay on the line with emergency services if needed.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-question">How do I track an ambulance in real-time?</button>
+        <div class="faq-answer">
+          <p>After requesting an ambulance, you can track it in real-time by logging into the system and accessing the
+            live map feature.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What are the emergency protocols if an ambulance is delayed?</button>
+        <div class="faq-answer">
+          <p>If the ambulance is delayed, you will receive updates through the system. In case of a significant delay,
+            please contact emergency services for further instructions.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I provide medical information for the patient in advance?</button>
+        <div class="faq-answer">
+          <p>Yes, during your request, you can provide essential medical details to help paramedics prepare better for
+            the situation.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Are there any charges for using the ambulance tracking service?</button>
+        <div class="faq-answer">
+          <p>The ambulance tracking service is free of charge, but regular ambulance service fees may apply depending
+            on the provider.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">How can I request special medical equipment or personnel on the
+          ambulance?</button>
+        <div class="faq-answer">
+          <p>During your request, you can specify if the patient needs specific medical equipment or personnel, such
+            as a ventilator or a specialized doctor.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What should I do if the location of the ambulance is not updating?</button>
+        <div class="faq-answer">
+          <p>If the ambulance location is not updating, try refreshing the page. If the issue persists, report a
+            technical issue through the system or contact support.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I schedule an ambulance in advance?</button>
+        <div class="faq-answer">
+          <p>Yes, the system allows you to schedule an ambulance for non-emergency situations in advance.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What should I do if the ambulance cannot find my location?</button>
+        <div class="faq-answer">
+          <p>If the ambulance has trouble finding your location, ensure your address is accurate. You can also contact
+            the driver directly through the provided contact information to give specific directions.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I request an ambulance for multiple patients?</button>
+        <div class="faq-answer">
+          <p>Yes, you can request an ambulance for multiple patients. Be sure to mention the number of patients and
+            their
+            condition during your request so that appropriate resources can be dispatched.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What happens if I need to cancel my ambulance request?</button>
+        <div class="faq-answer">
+          <p>You can cancel your ambulance request through the system before the ambulance arrives. However,
+            cancellation
+            charges may apply depending on the provider's policy.</p>
+        </div>
+      </div>
+    </div>
+          </span>
+        </button>
+      </div>
+    </a>
+  </div>
+
+  <!-- FAQ section ends here ... -->
+<!-- footer start here -->
+<!-- footer start here -->
+<!-- footer start here -->
+<footer style="color: #f3f4f6; text-align: center; width: 100%; height: 100%;">
+  <style>
+    /* Base styles for footer container */
+    .new-footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Ensures content is centered horizontally */
+      align-items: center; /* Ensures content is centered vertically */
+      padding: 20px 0;
+      background-color: #C4D7FF;
+      color: #f3f4f6;
+      box-sizing: border-box;
+    }
+
+    /* Styling for each footer section */
+    .new-footer-section {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 20px;
+      text-align: center;
+      align-self: center;
+    }
+
+    .new-footer-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #2980b9;
+    }
+
+    .new-footer-section a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .new-footer-section a:hover {
+      text-decoration: underline;
+    }
+
+    .new-social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      height: auto;
+    }
+
+    .new-newsletter-input {
+      padding: 10px;
+      width: 60%;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .new-newsletter-button {
+      background-color: #e81a1a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Media query for large screens (Desktop) */
+    @media (max-width: 1250px) {
+      .new-footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center;    /* Center horizontally */
+        justify-content: center; /* Center vertically */
+      }
+
+      .new-footer-section {
+        margin-bottom: 20px; /* Space between sections */
+        width: 100%; /* Full width in column layout */
+      }
+
+      .new-newsletter-input {
+        width: 90%; /* Slightly reduce width of input field */
+      }
+    }
+
+    /* Media query for medium screens (Tablets) */
+    @media (max-width: 768px) {
+      .new-footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Ensures text is centered */
+      }
+
+      .new-footer-section {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .new-newsletter-input {
+        width: 90%; /* Full width for smaller screens */
+      }
+    }
+
+    /* Media query for small screens (Mobile) */
+    @media (max-width: 400px) {
+      .new-footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .new-footer-section {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      .new-newsletter-input {
+        width: 90%; /* Full width for smaller screens */
+      }
+
+      .new-social-icons {
+        gap: 10px; /* Reduce gap between social icons */
+      }
+
+      .new-newsletter-input {
+        padding: 8px;
+        font-size: 14px; /* Slightly smaller input on mobile */
+      }
+
+      .new-newsletter-button {
+        font-size: 14px; /* Smaller button text */
+        padding: 8px 16px; /* Adjust button size */
+      }
+    }
+
+  </style>
+
+  <div class="new-footer-container">
+    <div class="new-footer-section">
+      <h3>Quick Links</h3>
+      <ul style="list-style-type: none; padding: 0;">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="sitemap.html">Site Map</a></li>
+      </ul>
+    </div>
+    <div class="new-footer-section">
+      <h3>Contact Info</h3>
+      <p style="color: #000;">GGSIPU, New Delhi, 110044</p>
+      <a href="mailto:emergency@ambulanceservice.in" style="color: #000000;">abc@gmail.com</a>
+      <p style="color: #000000;">Phone: <a href="tel:+91-911-1234567" style="color: #000000;">+91-911-1234567</a></p>
+    </div>
+    <div class="new-footer-section">
+      <h3>Follow Us</h3>
+      <div class="new-social-icons">
+        <a href="https://www.facebook.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="new-footer-section">
+      <h3>Subscribe to Our Newsletter</h3>
+      <form action="#">
+        <input class="new-newsletter-input" type="email" placeholder="Your Email" required>
+        <button class="new-newsletter-button" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+<style>
+    .fot {
+      display: flex;
+      height: 40vh;
+      width: 100%;
+      background-color: #25242a;
+    }
+
+    .l1 {
+      width: 30vw;
+    }
+
+    .l2 {
+      display: flex;
+      width: 40vw;
+      margin-left: 8vw;
+    }
+
+    .l21 {
+      margin-left: 9vw;
+    }
+
+    h2 {
+      color: darkorange;
+    }
+
+    .l1 p {
+      font-size: 1vw;
+      padding: 1vw;
+      color: white;
+    }
+
+    .l2 p {
+      font-size: 1vw;
+      padding: .5vw;
+      color: white;
+      justify-content: first baseline;
+      margin-top: -1vw;
+    }
+
+    .con {
+      margin-left: .9vw;
+    }
+
+    .l21 p {
+      font-size: 1vw;
+      padding: .5vw;
+      color: white;
+      justify-content: first baseline;
+      margin-top: -1vw;
+    }
+
+    .social-icons a {
+
+      background: darkorange;
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      margin-right: 4px;
+
+    }
+
+    .social-icons a i {
+      color: #e7f2f4;
+      padding: 13px 12px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .fot {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin-right: 12vw;
+      }
+
+      .l1 h2 {
+        font-size: 10vw;
+        margin-left: 33vw;
+        margin-top: -1vw;
+      }
+
+      .l1 p {
+        font-size: 4vw;
+        width: 90vw;
+        padding: 5vw;
+        margin-right: 5vw;
+        margin-top: -8vw;
+      }
+
+      .l2 {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .l2 h2 {
+        font-size: 5vw;
+        width: 30vw;
+      }
+
+      .l2 p {
+        font-size: 3vw;
+      }
+
+      .l21 {
+        margin-left: 19vw;
+      }
+
+      .l3 {
+        margin-left: -17vw;
+      }
+    }
+  </style>
+
+  <a href="chatbot.html">
+    <div class="fixed bottom-0 right-2 chatbot-container">
+      <button class="chatbot-button group">
+        <img class="h-20" src="chatbot.gif" alt="chatbot" />
+        <span class="tooltip-text">
+          Welcome to Res-Q-Rush!<br />
+          How can I help You?
+        </span>
+      </button>
+    </div>
+  </a>
+  <button class="light-dark-btn dark-mode-toggle" id="dark-mode-button">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <div class="gtranslate_wrapper"></div>
+  <div
+    style="background-color:  #25242a; color: darkorange;border-top: 1px solid #333; display: flex; justify-content: center; align-items: center; padding: 10px 20px;">
+    <strong>
+      <p>&copy; 2024 Res-Q-Rush. All rights reserved.</p>
+    </strong>
+  </div>
+  <script src="script.js"></script>
+  <script src="preloader.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script>
+      const scrollButton = document.querySelector(".scroll-button");
+      function smoothScrollToTop() {
+        const scrollY = window.pageYOffset;
+        const scrollStep = Math.max(10, Math.floor(scrollY / 20)); // Gradual scroll step
+        if (scrollY > 0) {
+          window.scrollBy(0, -scrollStep);
+          requestAnimationFrame(smoothScrollToTop);
+        }
+      }
+
+      // Always show the button and attach the scroll event
+      scrollButton?.addEventListener("click", () => {
+        requestAnimationFrame(smoothScrollToTop);
+      });
+  </script>
+  <script>
+    const thankYouMessage = document.getElementById("thankYouMessage");
+    const form = document.getElementById("subscribeForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form from refreshing the page
+
+      // Show Thank You Message after subscribing
+      thankYouMessage.style.display = 'block';
+
+      // Optionally clear the input field after subscribing
+      document.getElementById("emailInput").value = '';
+    });
+
+    // Back to Top Button functionality
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      thankYouMessage.style.display = 'block';
+      document.getElementById("emailInput").value = '';
+    });
+  </script>
+
+  <script>
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      thankYouMessage.style.display = 'block';
+      document.getElementById("emailInput").value = '';
+    });
+  </script>
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const faqButtons = document.querySelectorAll('.faq-question');
+
+      faqButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const faq = button.parentElement;
+          const answer = faq.querySelector('.faq-answer');
+
+          // Toggle active class
+          faq.classList.toggle('active');
+
+          // Control the max-height for slide effect
+          if (faq.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px'; // Set height based on content
+          } else {
+            answer.style.maxHeight = '0'; // Set height to zero to collapse
+          }
+        });
+      });
+    });
+    // end
+    document.addEventListener("DOMContentLoaded", function () {
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      circles.forEach(function (circle) {
+        circle.x = 0;
+        circle.y = 0;
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.pageX;
+        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+      });
+
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+      }
+      circles.forEach(function (circle, index) {
+        circle.style.left = `${x - 12}px`;
+        circle.style.top = `${y - 12}px`;
+        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+        const nextCircle = circles[index + 1] || circles[0];
+        circle.x = x;
+        circle.y = y;
+
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+      requestAnimationFrame(animateCircles);
+      animateCircles();
+    });
+  </script>
+  <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top">
+    <div class="scroll-top-icon">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+    <svg class="progress-ring" width="60" height="60">
+        <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
+            cy="30"></circle>
+    </svg>
+</button>
+<style>
+    .scroll-top {
+        position: fixed;
+        right: 1.6%;
+        background: linear-gradient(100deg, #1ca6f0, #3c7aff, #05deff);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        overflow: visible;
+        z-index: 10;
+        bottom: 75px;
+        /* Ensure button is on top */
+    }
+
+    .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .scroll-top:hover {
+        transform: scale(1.1);
+        /* Subtle scaling instead of expanding */
+        box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
+        /* Slightly larger shadow */
+    }
+
+    .scroll-top:active {
+        transform: scale(1.05);
+        /* Minor scale reduction on click */
+    }
+
+    .scroll-top-icon {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.3s ease;
+    }
+
+    .scroll-top:hover .scroll-top-icon {
+        transform: translateY(-3px);
+    }
+
+    /* Progress Ring Styling */
+    .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+        /* To start from the top */
+    }
+
+    .progress-ring__circle {
+        transition: stroke-dashoffset 0.35s;
+        transform-origin: 50% 50%;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.7);
+        }
+
+        100% {
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        }
+    }
+
+    .scroll-top:hover {
+        animation: pulse 1.5s infinite;
+    }
+
+    .scroll-top.show {
+        animation: none;
+        /* No animation when showing the button */
+    }
+
+    .scroll-top.show:hover {
+        animation: pulse 1.5s infinite;
+        /* Pulse on hover */
+    }
+
+
+
+</style>
+<script>
+    // Get the button
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    const progressCircle = document.querySelector(".progress-ring__circle");
+    const radius = progressCircle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    // Set the circle progress properties
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = circumference;
+
+    // Function to show or hide the button based on scroll position
+    function toggleScrollButton() {
+        if (window.scrollY > 100) {
+            scrollToTopBtn.classList.add("show");
+        } else {
+            scrollToTopBtn.classList.remove("show");
+        }
+    }
+
+    // Function to set the scroll progress on the button ring
+    function setProgress(percent) {
+        const offset = circumference - (percent / 100) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+    }
+
+    // Listen for scroll events to update button visibility and progress
+    window.addEventListener("scroll", () => {
+        toggleScrollButton();
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        setProgress(scrollPercent);
+    });
+
+    // Smooth scroll to top when the button is clicked
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+  </script>
+</body>
+
+</html>
+
+

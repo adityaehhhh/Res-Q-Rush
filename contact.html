@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="src/css/navbar.css">
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!--Updated to latest version-->
+    <style>
+        /* font size of button */
+        .buttons .login,
+        .buttons .get-started,
+        .dark-mode-toggle {
+            font-size: 18px;
+            /* Increase font size */
+            padding: 10px 15px;
+            /* Adjust padding for better appearance */
+        }
+
+        /* more addition for dark mode theme */
+
+        .dark-mode .logo img {
+            filter: brightness(0) invert(1);
+            /* Inverts the color to make it white */
+        }
+
+        /* end */
+        /* adding dark mode for contact info */
+        .content {
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth transitions */
+        }
+
+        .dark-mode .content {
+            background-color: rgba(50, 50, 50, 0.95);
+            /* Match body background opacity */
+            padding: 20px;
+            /* Optional: add padding for better spacing */
+        }
+
+        /* end */
+
+        .content {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            flex-grow: 1;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .contact-item {
+            background-color: #e7f3fe;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            /* Adjusted width for a better fit in a row */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            border: 3px solid #2980b9;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        /* Added the hover animation on the footer social icons */
+        .social-icon {
+            transition: transform 0.3s ease;
+            /* Smooth transition effect */
+        }
+         
+        .social-icon:hover {
+            animation-name: spin;  /*animation added*/
+            animation-duration: 2500ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+         /*key framed added*/
+         @keyframes spin {
+  from {
+    transform: rotate(0deg) scale(1.3);
+  }
+  to {
+    transform: rotate(360deg) scale(1.3);
+  }
+}
+
+        .fa-facebook:hover {
+            color: #316ff6;
+            border: 4px solid #316ff6;
+            border-radius: 50%;
+            padding: 5px;
+            /* Icon color change to blue on hover */
+        }
+
+        .fa-x-twitter:hover {
+            color: #1da1f2;
+            border: 4px solid #1da1f2;
+            border-radius: 50%;
+            padding: 5px;
+            /* Icon color change to black on hover */
+        }
+
+        .fa-instagram:hover {
+            color: #e1306c;
+            border: 4px solid #e1306c;
+            border-radius: 50%;
+            padding: 5px;
+            /* Icon color change to orangered on hover */
+        }
+
+        .fa-linkedin-in:hover {
+            color: #0072b1;
+           border: 4px solid #0072b1;
+           padding: 5px;
+           border-radius: 50%;
+            /* Icon color change to rgb(16, 13, 195) on hover */
+        }
+
+        /* #instagram:hover {
+            background: linear-gradient(45deg, #FF0080, #FF8C00, #FFD700);
+            color: transparent;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: scale(1.5);
+        }
+
+        #linkedin:hover {
+            color: #0077B5;
+            transform: scale(1.5);
+        } */
+        
+        ul li a:hover{
+            color: blue !important;
+        }
+
+        a:hover{
+            color: blue !important;
+        }
+
+        footer {
+            background-color: #C4D7FF;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Logo Animation */
+        @keyframes logoAnimation {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+                /* Start from the left */
+            }
+
+            50% {
+                transform: translateX(10px);
+                /* Move slightly to the right */
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+                /* End at original position */
+            }
+        }
+
+        .map {
+            width: 860px;
+            height: 400px;
+            border: 3px 3px 3px 3px solid #090202;
+            border-radius: 5px;
+            margin: 20px auto;
+            object-fit: cover;
+        }
+        .dark-mode .contact-item {
+            background-color: rgba(40, 40, 40, 0.9); 
+            color: #e0e0e0; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); 
+            border: 1px solid #555; 
+        }
+
+        .dark-mode .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .dark-mode .contact-item img {
+            border-color: #8ab4f8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- pre loader -->
+    <div id="preloader">
+        <div class="wrapper">
+            <div class="box-wrap">
+                <div class="box one"></div>
+                <div class="box two"></div>
+                <div class="box three"></div>
+                <div class="box four"></div>
+                <div class="box five"></div>
+                <div class="box six"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="container">
+
+        <div class="logo">
+            <div class="brand-name">
+                <span class="letter red" style="--letter-index: 1;">R</span>
+                <span class="letter red" style="--letter-index: 2;">e</span>
+                <span class="letter red" style="--letter-index: 3;">s</span>
+                <span class="letter red" style="--letter-index: 4;">-</span>
+                <span class="letter" style="--letter-index: 5;">Q</span>
+                <span class="letter" style="--letter-index: 6;">-</span>
+                <span class="letter" style="--letter-index: 7;">R</span>
+                <span class="letter" style="--letter-index: 8;">u</span>
+                <span class="letter" style="--letter-index: 9;">n</span>
+            </div>
+            <img src="images/logo2-w.webp" alt="Ambulance Monitoring System Logo" style="width: 80px; height: auto" />
+        </div>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#container" style="color: #333;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.34314 11.5858L12 5.92893M12 5.92893L17.6568 11.5858M12 5.92893V18.0711"
+                                stroke="currentColor">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" id="home-link" class="menu_links" data-link="Home">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <!-- <a href="features.html" id="features-link" class="menu_links" data-link="Features">
+                        <span>Features</span></a>
+                </li> -->
+                <li>
+                    <a href="team.html" id="team-link" class="menu_links" data-link="Team">
+                        <span>Team</span></a>
+                </li>
+                <li>
+                    <a href="contact.html" id="contact-link" class="menu_links" data-link="Contact">
+                        <span>Contact</span></a>
+                </li>
+                <li>
+                    <a href="Feedback.html" id="contact-link" class="menu_links" data-link="Feedback">
+                        <span>Feedback</span></a>
+                </li>
+                <li>
+                    <a href="nearby.html" id="contact-link" class="menu_links" data-link="Nearby">
+                        <span>Nearby</span></a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    <div class="content" id="main-content">
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="images/call1-w.avif" style="border-radius: 50%;" alt="Call Us">
+                <h2>Call Us</h2>
+                <p>For immediate assistance, call our emergency line at <strong>123-456-7890</strong>.</p>
+            </div>
+            <div class="contact-item">
+                <img src="https://i.postimg.cc/m2bGBGFf/help-w.png" style="border-radius: 50%;" alt="Help">
+                <h2>Need Help?</h2>
+                <p>Our team is available 24/7 to help you with any inquiries.</p>
+            </div>
+            <div class="contact-item">
+                <img src="images/caremeregency-w.png" style="border-radius: 50%;" alt="Emergency Care">
+                <h2>Emergency Care</h2>
+                <p>In case of an emergency, please do not hesitate to reach out to us immediately.</p>
+            </div>
+        </div>
+        <!-- adding map -->
+       <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d241294.64898498365!2d72.79635424219836!3d19.09761203283721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s123%20Emergency%20Lane%2C%20Mumbai%2C%20India!5e0!3m2!1sen!2sin!4v1728732339444!5m2!1sen!2sin"
+                width=860px height="400" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                overflow="hidden" style="border :10" object-fit="cover";  margin-top="50%"  >
+            </iframe>
+        </div>
+    </div>
+
+    <footer style=" color: #f3f4f6; text-align: center; width: 100%;">
+        <div style="background-color: #C4D7FF; color: #f3f4f6; ">
+            <div
+                style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+
+                <!-- Quick Links Section -->
+                <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Quick Links</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li><a href="about.html" style="color: #000000; text-decoration: none;">About Us</a>
+                        </li>
+                        <li><a href="contact.html" style="color: #000000; text-decoration: none;">Contact
+                                Us</a></li>
+                        <li><a href="privacy.html" style="color: #000000; text-decoration: none;">Privacy
+                                Policy</a></li>
+                        <li><a href="terms.html" style="color: #000000; text-decoration: none;">Terms of
+                                Service</a></li>
+                        <li><a href="sitemap.html" style="color: #000000; text-decoration: none;">Site
+                                Map</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div style="flex: 1; min-width: 200px; margin-bottom: 10px;">
+                    <h3 style="font-size: 1.5rem; color: #2980b9;">Contact Info</h3>
+                    <p style="color: #000;">GGSIPU, Delhi, India</p>
+                    <a href="mailto:emergency@ambulanceservice.in"
+                        style="color: #000000;">abc@gmail.com</a></p>
+                    <p style="color: #000000;">Phone: <a href="tel:+91-911-1234567"
+                            style="color: #000000;">+91-911-1234567</a></p>
+                </div>
+
+                <!-- Modified the looks of the social icons -->
+                <!-- Social Media Links -->
+                <div style="text-align: center; min-width: 200px; color: black;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Follow Us</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+                        <a href="https://www.facebook.com" target="_blank" class="social-icon facebook"
+                            style="color: black; text-decoration: none; font-size: 24px;"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" class="social-icon twitter"
+                            style="color: black; text-decoration: none; font-size: 24px;"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-icon instagram"
+                            style="color: black; text-decoration: none; font-size: 24px;"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin"
+                            style="color: black; text-decoration: none; font-size: 24px;"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <!-- Newsletter Subscription -->
+                <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Subscribe to Our Newsletter</h3>
+                    <form id="newsletter-form" action="#">
+                        <i class="fas fa-envelope" style="position: absolute; top: 7.95rem; right: 25rem; color: gray; font-size: 13px;"></i>
+                        <input type="email" id="newsletter-email" placeholder="Your Email"
+                            style="padding: 10px; width: 80%; border: none; border-radius: 5px; padding-left: 30px;" required><br><br>
+                        <button type="submit"
+                            style="background-color: #e81a1a; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">
+                            Subscribe
+                        </button>
+                    </form>
+                    <div id="subscription-notification" style="display:none; background-color: rgba(212, 237, 218, 0.8); color: #155724; padding: 10px; border-radius: 5px; position: absolute; top: 10px; left: 600px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+                        Thank you for subscribing to our newsletter!
+                    </div>
+                    
+                </div>
+                <script>
+                    document.querySelector("form").addEventListener("submit", function(event) {
+                        event.preventDefault(); // Prevent form from submitting immediately
+                
+                        // Improved Email validation regex to ensure proper domain like "gmail.com"
+                        const emailInput = document.querySelector("input[type='email']");
+                        const emailRegex = /^[^\s@]+@gmail\.com$/;
+                
+                        if (emailRegex.test(emailInput.value)) {
+                            // Show alert notification with green translucent box
+                            const notification = document.getElementById("subscription-notification");
+                            notification.style.display = "block";
+                
+                            // Hide the message after 3 seconds
+                            setTimeout(function() {
+                                notification.style.display = "none";
+                            }, 3000);
+                
+                            // Reset the form
+                            this.reset();
+                        } else {
+                            alert("Please enter a valid Gmail address.");
+                        }
+                    });
+                </script>
+                
+                
+            </div>
+        </div>
+        <hr>
+
+
+
+
+    </footer>
+    <!-- Copyright Section -->
+    <div
+        style="background-color: #C4D7FF; color: #000000; display: flex; justify-content: center; align-items: center; padding: 10px 20px;">
+        <strong>
+            <p>&copy; 2024 Res-Q-Rush. All rights reserved.</p>
+        </strong>
+    </div>
+    <a href="chatbot.html">
+        <div class="fixed bottom-0 right-2 chatbot-container">
+            <button class="chatbot-button group">
+                <img class="h-20" src="chatbot.gif" alt="chatbot" />
+                <span class="tooltip-text">
+                    Welcome to Res-Q-Rush!<br />
+                    How can I help You?
+                </span>
+            </button>
+        </div>
+    </a>
+    <button class="light-dark-btn dark-mode-toggle" id="dark-mode-button">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    <div class="gtranslate_wrapper"></div>
+
+    <script src="preloader.js"></script>
+    <script src="script.js"></script>
+    <script>    const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        const colors = [
+            "#ffb56b",
+            "#fdaf69",
+            "#f89d63",
+            "#f59761",
+            "#ef865e",
+            "#ec805d",
+            "#e36e5c",
+            "#df685c",
+            "#d5585c",
+            "#d1525c",
+            "#c5415d",
+            "#c03b5d",
+            "#b22c5e",
+            "#ac265e",
+            "#9c155f",
+            "#950f5f",
+            "#830060",
+            "#7c0060",
+            "#680060",
+            "#60005f",
+            "#48005f",
+            "#3d005e"
+        ];
+
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+        });
+        //end 
+    </script>
+
+    <!-- Add this div for the translator popup -->
+    <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top">
+        <div class="scroll-top-icon">
+            <i class="fa-solid fa-arrow-up"></i>
+        </div>
+        <svg class="progress-ring" width="60" height="60">
+            <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
+                cy="30"></circle>
+        </svg>
+    </button>
+    <style>
+        .scroll-top {
+            position: fixed;
+            right: 1.6%;
+            background: linear-gradient(100deg, #1ca6f0, #3c7aff, #05deff);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+            overflow: visible;
+            z-index: 10;
+            bottom: 75px;
+            /* Ensure button is on top */
+        }
+    
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        .scroll-top:hover {
+            transform: scale(1.1);
+            /* Subtle scaling instead of expanding */
+            box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
+            /* Slightly larger shadow */
+        }
+    
+        .scroll-top:active {
+            transform: scale(1.05);
+            /* Minor scale reduction on click */
+        }
+    
+        .scroll-top-icon {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+    
+        .scroll-top:hover .scroll-top-icon {
+            transform: translateY(-3px);
+        }
+    
+        /* Progress Ring Styling */
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+            /* To start from the top */
+        }
+    
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform-origin: 50% 50%;
+        }
+    
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+            }
+    
+            50% {
+                box-shadow: 0 5px 15px rgba(255, 69, 159, 0.7);
+            }
+    
+            100% {
+                box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+            }
+        }
+    
+        .scroll-top:hover {
+            animation: pulse 1.5s infinite;
+        }
+    
+        .scroll-top.show {
+            animation: none;
+            /* No animation when showing the button */
+        }
+    
+        .scroll-top.show:hover {
+            animation: pulse 1.5s infinite;
+            /* Pulse on hover */
+        }
+    </style>
+    <script>
+        // Get the button
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        const progressCircle = document.querySelector(".progress-ring__circle");
+        const radius = progressCircle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+    
+        // Set the circle progress properties
+        progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+        progressCircle.style.strokeDashoffset = circumference;
+    
+        // Function to show or hide the button based on scroll position
+        function toggleScrollButton() {
+            if (window.scrollY > 100) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        }
+    
+        // Function to set the scroll progress on the button ring
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            progressCircle.style.strokeDashoffset = offset;
+        }
+    
+        // Listen for scroll events to update button visibility and progress
+        window.addEventListener("scroll", () => {
+            toggleScrollButton();
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            setProgress(scrollPercent);
+        });
+    
+        // Smooth scroll to top when the button is clicked
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+      </script>
+</body>
+
+</html>
+

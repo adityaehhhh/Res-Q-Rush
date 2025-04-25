@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- Updated to latest version -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #c0b3b3;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .menu ul li a {
+        padding: 10px 15px;
+        color: rgb(15, 14, 14);
+        text-decoration: none;
+      }
+
+      .menu ul li a.active {
+        color: rgb(139, 74, 74);
+        background-color: #000;
+      }
+
+      .content {
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        flex-grow: 1;
+      }
+
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #afcbe6;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #2980b9;
+        border-radius: 5px;
+      }
+
+      .contact-form button {
+        background-color: #e81a1a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-form button:hover {
+        background-color: #e70b0b;
+      }
+
+      .location {
+        text-align: center;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #e7f3fe;
+      }
+
+      footer {
+        background-color: #000;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .hover-link {
+        color: #000000;
+        text-decoration: none;
+        margin-right: 10px;
+        background: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .fa-facebook-f:hover {
+        color: #316ff6 !important;
+      }
+
+      .fa-twitter:hover {
+        color: #1da1f2 !important;
+      }
+
+      .fa-instagram:hover {
+        color: #e1306c !important;
+      }
+
+      /* .hover-link:hover {
+            color: rgb(7, 7, 164);
+            background: none;
+        } */
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .chatbot-container {
+        position: fixed;
+        transition: right 0.3s ease;
+        bottom: 20px;
+        right: 7rem;
+        z-index: 1000;
+      }
+
+      .chatbot-button {
+        background-color: #007bff;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        /* Smaller padding */
+        cursor: pointer;
+        position: relative;
+        width: 50px;
+        /* Adjusted size */
+        height: 50px;
+        /* Adjusted size */
+        right: -60px;
+      }
+
+      .chatbot-button img {
+        width: 30px;
+        /* Adjusted image size */
+        height: 30px;
+        /* Adjusted image size */
+      }
+
+      .tooltip-text {
+        display: none;
+        /* Hide by default */
+        position: absolute;
+        bottom: 100%;
+        /* Position above the button */
+        right: 50%;
+        transform: translateX(50%);
+        background-color: #333;
+        /* Background color for tooltip */
+        color: #fff;
+        /* Tooltip text color */
+        padding: 5px;
+        border-radius: 5px;
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+      }
+
+      .chatbot-button:hover .tooltip-text {
+        display: block;
+        /* Show on hover */
+      }
+
+      /* Navbar Styles */
+      .menu {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 10px;
+        background-color: #f0f0f0; /* Light background color */
+        border-radius: 25px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+
+      .nav-links li {
+        margin: 0 15px; /* Space between links */
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333; /* Dark text color */
+        font-weight: 500; /* Medium font weight */
+        transition: color 0.3s; /* Smooth color transition */
+      }
+
+      .nav-links a:hover {
+        color: #007bff; /* Change color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <div class="brand-name">
+            <span class="letter red" style="--letter-index: 1">A</span>
+            <span class="letter red" style="--letter-index: 2">m</span>
+            <span class="letter red" style="--letter-index: 3">b</span>
+            <span class="letter red" style="--letter-index: 4">u</span>
+            <span class="letter" style="--letter-index: 5">F</span>
+            <span class="letter" style="--letter-index: 6">l</span>
+            <span class="letter" style="--letter-index: 7">o</span>
+            <span class="letter" style="--letter-index: 8">w</span>
+          </div>
+          <a href="./index.html">
+            <img
+              src="images/logo2-w.webp"
+              alt="Ambulance Monitoring System Logo"
+              style="width: 50px; height: auto"
+            />
+          </a>
+        </div>
+
+        <nav class="menu">
+          <ul class="nav-links">
+            <li>
+              <a
+                href="./index.html"
+                id="home-link"
+                onclick="changeContent('home')"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="features.html"
+                id="features-link"
+                onclick="changeContent('features')"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a href="team.html" id="team-link" onclick="changeContent('team')"
+                >Team</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                id="contact-link"
+                onclick="changeContent('contact')"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="Feedback.html"
+                id="feedback-link"
+                onclick="changeContent('feedback')"
+                >Feedback</a
+              >
+            </li>
+            <li>
+              <a
+                href="nearby.html"
+                id="nearby-link"
+                onclick="changeContent('nearby')"
+                >Nearby</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="buttons">
+          <a href="login.html" class="login">Log in</a>
+          <a href="up.html" class="get-started">Get started</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="content" id="main-content">
+      <h1>Contact Us</h1>
+      <div class="contact-form">
+        <form action="#" method="post">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="tel" placeholder="Your Phone Number" />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="location">
+        <h2>Our Location</h2>
+        <p>123 Emergency Lane, Mumbai, India</p>
+        <p>
+          Email:
+          <a href="mailto:emergency@ambulanceservice.in" class="hover-link"
+            >emergency@ambulanceservice.in</a
+          >
+        </p>
+        <p>
+          Phone:
+          <a href="tel:+91-911-1234567" class="hover-link">+91-911-1234567</a>
+        </p>
+      </div>
+    </div>
+
+    <footer
+      style="
+        color: #f3f4f6;
+        text-align: center;
+        width: 100%;
+        background-color: #c4d7ff;
+        border: none;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px 0;
+        "
+      >
+        <!-- Quick Links Section -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px">
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9">
+            Quick Links
+          </h3>
+          <ul style="list-style-type: none; padding: 0">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li>
+              <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="terms.html" class="footer-link">Terms of Service</a>
+            </li>
+            <li><a href="sitemap.html" class="footer-link">Site Map</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 10px">
+          <h3 style="font-size: 1.5rem; color: #2980b9">Contact Info</h3>
+          <p style="color: #000">123 Emergency Lane, Mumbai, India</p>
+          <a href="mailto:emergency@ambulanceservice.in" class="footer-link"
+            >emergency@ambulanceservice.in</a
+          >
+          <p style="color: #000000">
+            Phone:
+            <a href="tel:+91-911-1234567" class="footer-link"
+              >+91-911-1234567</a
+            >
+          </p>
+        </div>
+
+        <!-- Social Media Links -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px">
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9">
+            Follow Us
+          </h3>
+          <a href="https://www.facebook.com" class="hover-link"
+            ><i class="fab fa-facebook-f"> &nbsp; Facebook</i></a
+          ><br />
+          <a href="https://twitter.com" class="hover-link"
+            ><i class="fab fa-twitter"> &nbsp;Twitter</i></a
+          ><br />
+          <a href="https://www.instagram.com" class="hover-link"
+            ><i class="fab fa-instagram"> &nbsp;Instagram</i></a
+          ><br />
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: #000">
+        &copy; 2024 Nursing Tomorrow's Smile. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Social Media Links -->
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #2980b9;">Follow Us</h3>
+      <a href="https://www.facebook.com" target="_blank" class="hover-link"><i class="fab fa-facebook-f"></i> Facebook</a><br>
+      <a href="https://twitter.com" target="_blank" class="hover-link"><i class="fab fa-twitter"></i> Twitter</a><br>
+      <a href="https://www.instagram.com" target="_blank" class="hover-link"><i class="fab fa-instagram"></i> Instagram</a><br>
+    </div>
+  </div>
+  <p style="font-size: 0.8rem; color: #000;">&copy; 2024 Nursing Tomorrow's Smile. All rights reserved.</p>
+</footer>
+
+<a href="chatbot.html">
+    <div class="fixed bottom-0 right-2 chatbot-container">
+      <button class="chatbot-button group">
+        <img class="h-20" src="chatbot.gif" alt="chatbot" />
+        <span class="tooltip-text">
+          Welcome to Res-Q-Rush!<br />
+          How can I help You?
+        </span>
+      </button>
+    </div>
+  </a>
+
+    <a href="chatbot.html">
+      <div class="fixed bottom-0 right-2 chatbot-container">
+        <button class="chatbot-button group">
+          <img class="h-20" src="chatbot.gif" alt="chatbot" />
+          <span class="tooltip-text">
+            Welcome to Res-Q-Rush!<br />
+            How can I help You?
+          </span>
+        </button>
+      </div>
+    </a>
+  </body>
+</html>
+
+

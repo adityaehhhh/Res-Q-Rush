@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="src/css/navbar.css">
+    <title>Terms of Services- AmbuFlow</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!--Updated to latest version-->
+
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f8f9fa; /* Change from #0b0e11 to #f8f9fa */
+        color: #d1d1d1;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      .menu ul li a {
+        padding: 0.625rem 0.9375rem; /* 10px 15px */
+        color: black;
+        text-decoration: none;
+      }
+      .menu ul li a.active {
+        color: white;
+        background-color: #000;
+      }
+      
+      .buttons .login,
+.buttons .get-started,
+.dark-mode-toggle {
+    font-size: 18px; 
+    padding: 10px 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+/* Container spacing from the top */
+.buttons {
+    margin-top: 20px;
+    display: flex; 
+    gap: 15px; 
+    justify-content: center;
+}
+
+/* Login button styling */
+.login {
+    background-color: blue;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 50px; 
+    text-decoration: none;
+}
+
+/* Get Started button styling */
+.get-started {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 50px; 
+    text-decoration: none;
+    
+}
+
+/* Login button hover effect */
+.login:hover {
+    background-color: darkblue; 
+    transform: scale(1.05); 
+}
+
+/* Get Started button hover effect */
+.get-started:hover {
+    background-color: darkblue; /* Darker shade for hover effect */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    
+}
+      header {
+        background: linear-gradient(90deg, #e3f2fd, #bbdefb, #90caf9);        
+        padding: 30px 0 0 0;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      header h1 {
+        color: black;        
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+      main {
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        color: blue;
+      }
+      h2 {
+        color: black;
+        font-size: 2.5rem;
+        border-bottom: 2px solid #1e88e5;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+      p {
+        color: blue;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+      .highlight {
+        color: #f50057;
+        font-weight: bold;
+      }
+      ul {
+        margin-left: 40px;
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 25px;
+        font-size: 1.1rem;
+      }
+      ul li::before {
+        color: #1e88e5;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      footer {
+        background-color: #0d47a1;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+      footer p {
+        margin: 0;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        background-color: #1e88e5;        
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background-color: #42a5f5;        
+        transform: scale(1.05);
+      }
+
+      /* Hover effect */
+      main:hover {
+        transition: 0.5s;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Futuristic glow effect for text */
+      /* h1,
+      h2 {
+        text-shadow: 0 0 10px rgba(30, 136, 229, 0.8),
+          0 0 20px rgba(66, 165, 245, 0.5);
+      } */
+
+      /* Futuristic neon glow for sections */
+      main {
+        border: 2px solid rgba(66, 165, 245, 0.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 3rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+      footer {
+        background-color: #A7CCF0; /* Change from #0d47a1 */
+        color: #000000; /* Change from white */
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+       
+          <div class="container">
+            <div class="logo">
+                <div class="brand-name">
+                    <span class="letter red" style="--letter-index: 1;">A</span>
+                    <span class="letter red" style="--letter-index: 2;">m</span>
+                    <span class="letter red" style="--letter-index: 3;">b</span>
+                    <span class="letter red" style="--letter-index: 4;">u</span>
+                    <span class="letter" style="--letter-index: 5;">F</span>
+                    <span class="letter" style="--letter-index: 6;">l</span>
+                    <span class="letter" style="--letter-index: 7;">o</span>
+                    <span class="letter" style="--letter-index: 8;">w</span>
+                </div>
+                <a href="./index.html">
+                    <img src="images/logo2-w.webp" alt="Ambulance Monitoring System Logo"
+                        style="width: 50px; height: auto" />
+                </a>
+              </div>
+
+          
+        <nav class="menu">
+            <ul>
+             
+                    <a href="#container" style="color: #333;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.34314 11.5858L12 5.92893M12 5.92893L17.6568 11.5858M12 5.92893V18.0711"
+                                stroke="currentColor">
+                            </path>
+                        </svg>
+                    </a>
+              
+             
+                    <a href="index.html" id="home-link" class="menu_links" data-link="Home">
+                        <span>Home &nbsp; &nbsp; &nbsp;</span>
+                    </a>
+              
+             
+                    <a href="features.html" id="features-link" class="menu_links" data-link="Features">
+                        <span>Features &nbsp; &nbsp; &nbsp;</span></a>
+              
+             
+                    <a href="team.html" id="team-link" class="menu_links" data-link="Team">
+                        <span>Team &nbsp; &nbsp; &nbsp;</span></a>
+              
+             
+                    <a href="contact.html" id="contact-link" class="menu_links" data-link="Contact">
+                        <span>Contact &nbsp; &nbsp; &nbsp;</span></a>
+              
+             
+                    <a href="Feedback.html" id="contact-link" class="menu_links" data-link="Feedback">
+                        <span>Feedback &nbsp; &nbsp; &nbsp;</span></a>
+              
+             
+                    <a href="nearby.html" id="contact-link" class="menu_links" data-link="Nearby">
+                        <span>Nearby &nbsp; &nbsp; &nbsp;</span></a>
+              
+            </ul>
+        </nav>
+
+    </div>
+          
+
+
+              <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+          
+          </nav>
+          <div class="buttons">
+            <a href="login.html" class="login">Log in</a>
+            <a href="up.html" class="get-started">Get started</a>
+          </div>
+        </div>
+        <h1>Terms of Service AmbuFlow</h1>
+      </header>
+
+    <main>
+      <h2>Intro</h2>
+      <p>
+        Welcome to 
+        <span class="highlight">AmbuFlow</span>. By using our services, you agree to the following Terms of Service. Please read them carefully.
+      </p>
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By accessing or using our services, you confirm that you accept these Terms and agree to comply with them. If you do not agree, please do not use our services.
+      </p>
+
+      <h2>2. Services Provided</h2>
+     <p> 
+     <strong>Ambuflow</strong> provides emergency medical transportation services, including but not limited to:
+     <ul style="list-style-type:disc">
+        <li>Emergency ambulance response</li> 
+        <li>Non-emergency medical transportation</li> 
+         <li>Medical assistance and support during transit</li>
+        </ul> 
+      </p>
+      <h2>3. Eligibility</h2>
+      <p>You must be at least <strong>18 years old</strong> to use our services. If you are under 18, you may only use our services with the consent of a <strong>parent or guardian.</strong> </p> 
+
+      <h2>4. User Responsibilities</h2>
+      <ul style="list-style-type:disc">
+        <li><strong>Accurate Information: </strong> You agree to provide accurate, current, and complete information when using our services.</li> 
+        <li><strong>Emergency  Use:</strong> Our services are intended for emergencies. Please call <strong> +91-911-1234567</strong> for life-threatening situations.</li> 
+         <li><strong>Respectful  Conduct:</strong> Treat our personnel with respect. Any abusive or threatening behavior may result in the termination of services.</li>
+        </ul> 
+      <h2>5. Fees and Payment</h2>
+      <ul style="list-style-type:disc">
+        <li><strong>Service Fees:</strong> Charges will apply for the services provided. You agree to pay all applicable fees, including any additional charges for special circumstances.</li> 
+        <li><strong>Payment Method:</strong> Payments can be made through online UPI/Net banking/Credit & Debit Card.</li> 
+        </ul> 
+        <h2>6. Cancellation Policy</h2>
+      <p>You may cancel your request for services prior to arrival. <strong>Cancellations after arrival may incur a fee.</strong> </p> 
+      <h2>7.  Contact Information</h2>
+      <p>For questions or concerns regarding these Terms, please contact us at:</p>
+      <ul style="list-style-type:disc">
+        <li><strong>Email:</strong> emergency@ambulanceservice.in</li> 
+        <li><strong>Phone:</strong> +91-911-1234567</li> 
+        </ul> 
+      <a href="https://github.com/mansiruhil13/Bobble-AI" class="btn"
+        >Contribute on GitHub</a
+      >
+    </main>
+
+    <footer>
+        <p>© 2024 AmbuFlow - All Rights Reserved</p>
+      </footer>
+  </body>
+</html>

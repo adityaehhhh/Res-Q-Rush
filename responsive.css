@@ -1,0 +1,539 @@
+/* Basic styling for the dropdown button */
+.dropbtn {
+    font-size: 18px;
+    background-color: #b7bdbe;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
+    display: none;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: absolute;
+    /* display: none; */
+    top: 20px;
+    left: 15px;
+    display: inline-block;
+}
+
+/* Initially hide the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-content li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown-content li a:hover {
+    color: #ffffff;
+    background-color: #9cc9e3;
+    border-radius: 10px;
+
+}
+
+/* Show the dropdown when 'show' class is added */
+.show {
+    display: block;
+}
+
+
+
+
+/* Media Query for Screens Smaller than 375px */
+@media screen and (max-width: 675px) {
+
+    /* main container alignment */
+    #container {
+        max-width: 100% !important;
+    }
+    .main_content{
+        flex-direction: column;
+        max-width: 375px;
+        margin-top: 60px;
+        
+    }
+    .main_heading{
+        max-width: 375px;
+        margin: 0;
+
+    }
+    .main_content img{
+        width: 320px;
+    }
+    .main_content h1{
+        font-size: x-large;
+    }
+    .main_content h2{
+        font-size: xxx-large;
+    }
+    .main_content p{
+        width: 322px;
+        font-size: medium;
+    }
+    .main_content a{
+        margin-left: 0px;
+    }
+    
+    
+    /* top logo alignment */
+    .logo img{
+        width: 50px !important;
+    }
+    .logo{
+        position: relative;
+        left: 47px;
+        padding-right: 35px;
+    }
+    
+
+    /* floating icons alignment */
+    .gt-current-lang{
+        width: 80px !important;
+        padding: 3px !important;
+    }
+    .gt-current-lang img{
+        margin: 0 !important;
+        width: 25px !important;
+    }
+    .chatbot-container{
+        right: 18px !important;
+        bottom: 65px !important;
+        height: 45px !important;
+        width: 45px !important;
+    }
+    .chatbot-button{
+        left: 0 !important;
+        height: 45px !important;
+        width: 45px !important;
+        
+    }
+    .chatbot-button img{
+        position: relative !important;
+        right: 2px !important;
+        bottom: 3px !important;
+    }
+    
+
+    /* info alignment */
+    #grid-content h1{
+        font-size: x-large;
+        
+    }
+    #grid-content .grid{
+        display: flex;
+        flex-direction: column;
+    }
+    #grid-content .grid .team-feature{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-feature{
+        display: block !important;
+
+    }
+    .faq-h2{
+        font-size: x-large !important;
+    }
+
+    /* footer alignment */
+    footer{
+        width: 375px !important;
+    }
+    footer div{
+        flex-direction: column;
+        left: -2.5% !important;
+    }
+    .media-link{
+        flex-direction: row;
+    }
+
+
+    .dropbtn{
+        display:block;
+    }
+
+
+}
+
+
+
+
+/* Media Query for Screens Smaller than 426px */
+@media screen and (min-width: 375px) and (max-width: 426px) {
+
+    /* main container alignment */
+    #container {
+        max-width: 100% !important;
+    }
+    .main_content{
+        flex-direction: column;
+        max-width: 375px;
+        margin-top: 60px;
+        
+    }
+    .main_heading{
+        max-width: 375px;
+        margin: 0;
+
+    }
+    .main_content img{
+        width: 320px;
+    }
+    .main_content h1{
+        font-size: x-large;
+    }
+    .main_content h2{
+        font-size: xxx-large;
+    }
+    .main_content p{
+        width: 322px;
+        font-size: medium;
+    }
+    .main_content a{
+        margin-left: 0px;
+    }
+    
+    
+    /* top logo alignment */
+    .logo img{
+        width: 50px !important;
+    }
+    .logo{
+        position: relative;
+        left: 47px;
+        padding-right: 35px;
+    }
+    
+
+    /* floating icons alignment */
+    .gt-current-lang{
+        width: 80px !important;
+        padding: 3px !important;
+    }
+    .gt-current-lang img{
+        margin: 0 !important;
+        width: 25px !important;
+    }
+    .chatbot-container{
+        right: 18px !important;
+        bottom: 65px !important;
+        height: 45px !important;
+        width: 45px !important;
+    }
+    .chatbot-button{
+        left: 0 !important;
+        height: 45px !important;
+        width: 45px !important;
+        
+    }
+    .chatbot-button img{
+        position: relative !important;
+        right: 2px !important;
+        bottom: 3px !important;
+    }
+    
+
+    /* info alignment */
+    #grid-content h1{
+        font-size: x-large;
+        
+    }
+    #grid-content .grid{
+        display: flex;
+        flex-direction: column;
+    }
+    #grid-content .grid .team-feature{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-feature{
+        display: block !important;
+
+    }
+    .faq-h2{
+        font-size: x-large !important;
+    }
+
+    /* footer alignment */
+    footer{
+        width: 425px !important;
+    }
+    footer div{
+        flex-direction: column;
+        left: 0.65% !important;
+    }
+    .media-link{
+        flex-direction: row;
+    }
+
+    .dropbtn{
+        display:block;
+    }
+
+
+
+}
+
+
+
+/* Media Query for Screens Smaller than 769px */
+@media screen and (min-width: 426px) and (max-width: 769px) {
+
+    /* main container alignment */
+    #container {
+        max-width: 100% !important;
+    }
+
+    .main_content{
+        /* flex-direction: column; */
+        max-width: 768px;
+        margin-top: 60px;
+        
+    }
+    .main_heading{
+        max-width: 375px;
+        margin: 0;
+
+    }
+    .main_content img{
+        width: 320px;
+    }
+    .main_content h1{
+        font-size: x-large;
+    }
+    .main_content h2{
+        font-size: xxx-large;
+    }
+    .main_content p{
+        width: 322px;
+        font-size: medium;
+    }
+    .main_content a{
+        margin-left: 0px;
+    }
+    
+    
+    /* top logo alignment */
+    .logo img{
+        width: 50px !important;
+    }
+    .logo{
+        position: relative;
+        left: 47px;
+        padding-right: 35px;
+    }
+    
+
+    /* floating icons alignment */
+    .gt-current-lang{
+        width: 80px !important;
+        padding: 3px !important;
+    }
+    .gt-current-lang img{
+        margin: 0 !important;
+        width: 25px !important;
+    }
+    .chatbot-container{
+        right: 18px !important;
+        bottom: 65px !important;
+        height: 45px !important;
+        width: 45px !important;
+    }
+    .chatbot-button{
+        left: 0 !important;
+        height: 45px !important;
+        width: 45px !important;
+        
+    }
+    .chatbot-button img{
+        position: relative !important;
+        right: 2px !important;
+        bottom: 3px !important;
+    }
+    
+
+    /* info alignment */
+    #grid-content h1{
+        font-size: x-large;
+        
+    }
+    #grid-content .grid{
+        display: flex;
+        flex-direction: column;
+    }
+    #grid-content .grid .team-feature{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-feature{
+        display: block !important;
+
+    }
+    .faq-h2{
+        font-size: x-large !important;
+    }
+
+    /* footer alignment */
+    footer{
+        width: 769px !important;
+    }
+    footer div{
+        /* flex-direction: column; */
+        left: 0.65% !important;
+    }
+    .media-link{
+        flex-direction: row;
+    }
+
+    .dropbtn{
+        display:block;
+    }
+
+
+}
+
+
+
+
+/* Media Query for Screens Smaller than 1251px */
+@media screen and (min-width: 769px) and (max-width: 1251px) {
+
+    /* main container alignment */
+    #container {
+        max-width: 100% !important;
+    }
+    .main_content{
+        /* flex-direction: column; */
+        max-width: 1250px;
+        margin-top: 60px;
+        
+    }
+    .main_heading{
+        max-width: 375px;
+        margin: 0;
+
+    }
+    .main_content img{
+        width: 320px;
+    }
+    .main_content h1{
+        font-size: x-large;
+    }
+    .main_content h2{
+        font-size: xxx-large;
+    }
+    .main_content p{
+        width: 322px;
+        font-size: medium;
+    }
+    .main_content a{
+        margin-left: 0px;
+    }
+    
+    
+    /* top logo alignment */
+    .logo img{
+        width: 50px !important;
+    }
+    .logo{
+        position: relative;
+        left: 47px;
+        padding-right: 35px;
+    }
+    
+
+    /* floating icons alignment */
+    .gt-current-lang{
+        width: 80px !important;
+        padding: 3px !important;
+    }
+    .gt-current-lang img{
+        margin: 0 !important;
+        width: 25px !important;
+    }
+    .chatbot-container{
+        right: 18px !important;
+        bottom: 65px !important;
+        height: 45px !important;
+        width: 45px !important;
+    }
+    .chatbot-button{
+        left: 0 !important;
+        height: 45px !important;
+        width: 45px !important;
+        
+    }
+    .chatbot-button img{
+        position: relative !important;
+        right: 2px !important;
+        bottom: 3px !important;
+    }
+    
+
+    /* info alignment */
+    #grid-content{
+        width: 1250px;
+    }
+
+    #grid-content .grid{
+        display: flex;
+        flex-direction: column;
+        width: 982px;
+    }
+    #grid-content .grid .team-feature{
+        display: flex;
+        flex-direction: row;
+    }
+    .contact-feature{
+        /* display: block !important; */
+        width: 946px;
+
+    }
+    .faq-h2{
+        font-size: x-large !important;
+    }
+
+    /* footer alignment */
+    footer{
+        width: 1251px !important;
+    }
+    footer div{
+        /* flex-direction: column; */
+        left: 2% !important;
+    }
+    .media-link{
+        flex-direction: row;
+    }
+
+    .dropbtn{
+        display:none;
+    }
+
+
+}
+
+
+

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Status</title>
+    <link rel="stylesheet" href="src/css/manage.css">
+    <link rel="stylesheet" href="src/css/hospital.css"> 
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon"><!-- Ensures consistent styling -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKR3agIMLtauzDhz4fCu3heww0BV_81H4" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="./index.html" target="_self"><img src="./images/manageLogo.png"></img></a>
+                <a href="./index.html"><h2 style="display: flex;">Res-<p style="color: #3DBDEC;">Q-Rush</p></h2></a>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="hospital.html">Dashboard</a></li>
+                <li><a href="manage.html">Manage Status</a></li>
+                <li><a href="driver.html">Manage Driver</a></li>
+                <li><a href="ambtracker.html">Manage Ambulance</a></li>
+                <li id="logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+            </ul>
+            <div class="resp">
+                <button id="dropdown"><i class="fa-solid fa-bars"></i></button>
+                <li id="logout" onclick="logout1()"><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: white;"></i></a></li>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dropdown -->
+    <div class="dropdown-menu">
+        <ul class="navbar-links2">
+            <li><a href="hospital.html">Dashboard</a></li>
+            <li><a href="manage.html">Manage Status</a></li>
+            <li><a href="driver.html">Manage Driver</a></li>
+            <li><a href="ambtracker.html">Manage Ambulance</a></li>
+        </ul>
+     </div>
+
+    <main>
+        <div class="manage-container">
+            <h1>Manage Status</h1>
+            <div class="manage-options">
+                <button class="manage-btn" id="addDriverBtn">Add Driver</button>
+                <button class="manage-btn" id="addAmbulanceBtn">Add Ambulance</button>
+            </div>
+
+            <!-- Manage Driver Section -->
+            <section id="manageDriverSection" class="manage-section">
+                <h2 id="driverFormTitle" style="margin-bottom: 20px;">Add Driver</h2>
+                <form id="driverForm">
+                    <input type="text" id="driverIndex" name="driverIndex" hidden>
+                    
+                    <div class="form-group">
+                        <label for="driverName">Driver Name:</label>
+                        <input type="text" id="driverName" name="driverName" required placeholder="Enter driver name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="driverStatus">Status:</label>
+                        <select id="driverStatusSelect" name="driverStatus" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option value="Available">Available</option>
+                            <option value="Offline">Offline</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="driverContact">Contact Number:</label>
+                        <input type="tel" id="driverContact" name="driverContact" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="driverLocation">Location:</label>
+                        <input type="text" id="driverLocation" name="driverLocation" placeholder="e.g., Location XYZ" required>
+                    </div>
+                    <p class="button-container">
+                        <button type="submit" class="submit-btn save" style="padding: 20px; font-weight: 600;">Save Driver</button>
+                        <button type="button" class="submit-btn cancel" id="cancelDriverBtn" style="padding: 20px; font-weight: 600;">Cancel</button>
+                    </p>
+                </form>
+            </section>
+
+            <!-- Manage Ambulance Section -->
+            <section id="manageAmbulanceSection" class="manage-section hidden">
+                <h2 id="ambulanceFormTitle" style="margin-bottom: 20px;">Add Ambulance</h2>
+                <form id="ambulanceForm">
+                    <input type="hidden" id="ambulanceIndex" name="ambulanceIndex">
+                    
+                    <div class="form-group">
+                        <label for="ambulanceID">Ambulance ID:</label>
+                        <input type="text" id="ambulanceID" name="ambulanceID" required placeholder="Enter ambulance ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ambulanceStatus">Status:</label>
+                        <select id="ambulanceStatusSelect" name="ambulanceStatus" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ambulanceLocation">Location:</label>
+                        <input type="text" id="ambulanceLocation" name="ambulanceLocation" placeholder="e.g., Location ABC" required>
+                    </div>
+                    <p class="button-container">
+                        <button type="submit" class="submit-btn save" style="padding: 20px; font-weight: 600;">Save Ambulance</button>
+                        <button type="button" class="submit-btn cancel" id="cancelAmbulanceBtn" style="padding: 20px; font-weight: 600;">Cancel</button>
+                    </p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Elements
+        const addDriverBtn = document.getElementById('addDriverBtn');
+        const addAmbulanceBtn = document.getElementById('addAmbulanceBtn');
+        const manageDriverSection = document.getElementById('manageDriverSection');
+        const manageAmbulanceSection = document.getElementById('manageAmbulanceSection');
+        const driverForm = document.getElementById('driverForm');
+        const ambulanceForm = document.getElementById('ambulanceForm');
+        const cancelDriverBtn = document.getElementById('cancelDriverBtn');
+        const cancelAmbulanceBtn = document.getElementById('cancelAmbulanceBtn');
+        const driverFormTitle = document.getElementById('driverFormTitle');
+        const ambulanceFormTitle = document.getElementById('ambulanceFormTitle');
+
+        // Function to show a section
+        function showSection(section) {
+            section.classList.remove('hidden');
+            section.classList.add('active');
+        }
+
+        // Dropdown
+        let flag = false
+        document.getElementById('dropdown').addEventListener('click', () => {
+            const dropdown = document.querySelector('.dropdown-menu');
+            if (flag) {
+                dropdown.style.display = 'none';
+                flag = false;
+            } else {
+                dropdown.style.display = 'block';
+                flag = true;
+            }
+        });
+
+        // Function to hide a section
+        function hideSection(section) {
+            section.classList.add('hidden');
+            section.classList.remove('active');
+        }
+
+        // Event Listeners for Add Buttons
+        addDriverBtn.addEventListener('click', () => {
+            driverForm.reset();
+            document.getElementById('driverIndex').value = '';
+            driverFormTitle.textContent = 'Add Driver';
+            showSection(manageDriverSection);
+            hideSection(manageAmbulanceSection); // Hide ambulance section
+        });
+
+        addAmbulanceBtn.addEventListener('click', () => {
+            ambulanceForm.reset();
+            document.getElementById('ambulanceIndex').value = '';
+            ambulanceFormTitle.textContent = 'Add Ambulance';
+            showSection(manageAmbulanceSection);
+            hideSection(manageDriverSection); // Hide driver section
+        });
+
+        // Event Listeners for Cancel Buttons
+        cancelDriverBtn.addEventListener('click', () => {
+            hideSection(manageDriverSection);
+        });
+
+        cancelAmbulanceBtn.addEventListener('click', () => {
+            hideSection(manageAmbulanceSection);
+        });
+
+        // Handle Driver Form Submission
+      // Handle Driver Form Submission
+driverForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const driverName = document.getElementById('driverName').value.trim();
+    const driverStatus = document.getElementById('driverStatusSelect').value;
+    const driverContact = document.getElementById('driverContact').value;
+    const driverLocation = document.getElementById('driverLocation').value.trim();
+    const driverIndex = document.getElementById('driverIndex').value;
+
+    let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+
+    // Function to check if driver already exists
+    const driverExists = (name, contact, location) => {
+        return drivers.some(driver => 
+            driver.name.toLowerCase() === name.toLowerCase() &&
+            driver.contact === contact &&
+            driver.location.toLowerCase() === location.toLowerCase()
+        );
+    };
+
+    if (driverIndex === '') {
+        // Check for duplicate when adding a new driver
+        if (driverExists(driverName, driverContact, driverLocation)) {
+            alert(`A driver with the name "${driverName}", contact "${driverContact}", and location "${driverLocation}" already exists.`);
+            return; // Exit the function without adding the driver
+        }
+        // Add New Driver
+        drivers.push({
+            name: driverName,
+            status: driverStatus,
+            contact: driverContact,
+            location: driverLocation
+        });
+        alert(`Driver ${driverName} has been added.`);
+    } else {
+        // Edit Existing Driver
+        const originalDriver = drivers[driverIndex];
+        if (
+            originalDriver.name !== driverName ||
+            originalDriver.contact !== driverContact ||
+            originalDriver.location !== driverLocation
+        ) {
+            // Check for duplicate only if name, contact, or location has changed
+            if (driverExists(driverName, driverContact, driverLocation)) {
+                alert(`A driver with the name "${driverName}", contact "${driverContact}", and location "${driverLocation}" already exists.`);
+                return; // Exit the function without updating the driver
+            }
+        }
+        drivers[driverIndex] = {
+            name: driverName,
+            status: driverStatus,
+            contact: driverContact,
+            location: driverLocation
+        };
+        alert(`Driver ${driverName} has been updated.`);
+    }
+
+    localStorage.setItem('drivers', JSON.stringify(drivers));
+    hideSection(manageDriverSection);
+});
+
+      
+
+        // Handle Ambulance Form Submission
+        ambulanceForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const ambulanceID = document.getElementById('ambulanceID').value.trim();
+            const ambulanceStatus = document.getElementById('ambulanceStatusSelect').value;
+            const ambulanceLocation = document.getElementById('ambulanceLocation').value.trim();
+            const ambulanceIndex = document.getElementById('ambulanceIndex').value;
+
+            let ambulances = JSON.parse(localStorage.getItem('ambulances')) || [];
+
+            if (ambulanceIndex === '') {
+                // Add New Ambulance
+                ambulances.push({
+                    id: ambulanceID,
+                    status: ambulanceStatus,
+                    location: ambulanceLocation
+                });
+                alert(`Ambulance ${ambulanceID} has been added.`);
+            } else {
+                // Edit Existing Ambulance
+                ambulances[ambulanceIndex] = {
+                    id: ambulanceID,
+                    status: ambulanceStatus,
+                    location: ambulanceLocation
+                };
+                alert(`Ambulance ${ambulanceID} has been updated.`);
+            }
+
+            localStorage.setItem('ambulances', JSON.stringify(ambulances));
+            hideSection(manageAmbulanceSection);
+        });
+
+        // Function to populate form for editing Driver
+        function populateDriverForm(index) {
+            const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+            const driver = drivers[index];
+            if (driver) {
+                document.getElementById('driverName').value = driver.name;
+                document.getElementById('driverStatusSelect').value = driver.status;
+                document.getElementById('driverContact').value = driver.contact;
+                document.getElementById('driverLocation').value = driver.location;
+                document.getElementById('driverIndex').value = index;
+                driverFormTitle.textContent = `Edit Driver: ${driver.name}`;
+                showSection(manageDriverSection);
+            }
+        }
+
+        // Function to populate form for editing Ambulance
+        function populateAmbulanceForm(index) {
+            const ambulances = JSON.parse(localStorage.getItem('ambulances')) || [];
+            const ambulance = ambulances[index];
+            if (ambulance) {
+                document.getElementById('ambulanceID').value = ambulance.id;
+                document.getElementById('ambulanceStatusSelect').value = ambulance.status;
+                document.getElementById('ambulanceLocation').value = ambulance.location;
+                document.getElementById('ambulanceIndex').value = index;
+                ambulanceFormTitle.textContent = `Edit Ambulance: ${ambulance.id}`;
+                showSection(manageAmbulanceSection);
+            }
+        }
+
+        // Populate forms if accessed via query parameters for editing
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+            const index = params.get('index');
+
+            if (type && index !== null) {
+                if (type === 'driver') {
+                    populateDriverForm(index);
+                } else if (type === 'ambulance') {
+                    populateAmbulanceForm(index);
+                }
+            }
+        };
+
+        document.getElementById('logout').addEventListener('click', () => {
+            cf = confirm('Are you sure you want to logout?');
+            if (cf) {
+                localStorage.removeItem('userID');
+                localStorage.removeItem('JWTtoken');
+                window.location.href = 'index.html';
+                alert("Logged out successfully!");
+            } else return
+        });
+
+        // Logout (for small screens)
+        function logout1(){
+            cf = confirm('Are you sure you want to logout?');
+            if (cf) {
+                localStorage.removeItem('userID');
+                localStorage.removeItem('JWTtoken');
+                window.location.href = 'index.html';
+                alert("Logged out successfully!");
+            } else return
+        }
+
+    </script>
+</body>
+</html>

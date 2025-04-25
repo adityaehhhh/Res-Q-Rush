@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Hospitals</title>
+    <link rel="stylesheet" href="src/css/user.css">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl font-extrabold text-stone-900">Nearby Hospitals</h1>
+        <div id="hospitalList">
+            <!-- Hospitals will be populated here -->
+        </div>
+        <button id="viewMapBtn">View on Map</button>
+    </div>
+
+    <script>
+        function fetchHospitalList() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    searchHospitals(userLocation);
+                }, () => {
+                    console.error('Error getting user location.');
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function searchHospitals(location) {
+            const service = new google.maps.places.PlacesService(document.createElement('div'));
+            const request = {
+                location: location,
+                radius: '5000',
+                type: ['hospital', 'pharmacy']
+            };
+
+            service.nearbySearch(request, (results, status) => {
+                const hospitalList = document.getElementById('hospitalList');
+                hospitalList.innerHTML = ''; // Clear previous list
+
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    results.forEach(place => {
+                        const hospitalItem = document.createElement('div');
+                        hospitalItem.className = 'hospital-item';
+                        hospitalItem.innerHTML = `
+                            <h3>${place.name}</h3>
+                            <p><strong>Address:</strong> ${place.vicinity}</p>
+                            <p><strong>Rating:</strong> ${place.rating ? place.rating : 'No rating'}</p>
+                        `;
+                        hospitalList.appendChild(hospitalItem);
+                    });
+                } else {
+                    hospitalList.innerHTML = `
+                        <div class="hospital-item">
+                            <h3>No hospitals found.</h3>
+                            <p>Please try again later.</p>
+                        </div>
+                    `;
+                    console.error('Places request failed due to: ' + status);
+                }
+            });
+        }
+
+        window.onload = fetchHospitalList;
+
+        document.getElementById('viewMapBtn').addEventListener('click', () => {
+            window.location.href = 'user-map.html';
+        });
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKR3agIMLtauzDhz4fCu3heww0BV_81H4&libraries=places"></script>
+</body>
+</html>

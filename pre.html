@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Prescription Reader</title>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3f51b5;
+      --secondary: #f50057;
+      --bg: #f4f7fa;
+      --text: #333;
+      --card-bg: #ffffff;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      margin: 0;
+      padding: 20px;
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .buttons label,
+    .buttons button {
+      flex: 1 1 30%;
+      margin: 10px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .buttons label:hover,
+    .buttons button:hover {
+      background-color: #2c3e91;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-top: 15px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      resize: vertical;
+    }
+
+    .highlight {
+      background: yellow;
+      font-weight: bold;
+    }
+
+    .medicine-card {
+      background: #e8f4ff;
+      border: 1px solid #b3daff;
+      border-left: 5px solid var(--primary);
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .medicine-card strong {
+      color: var(--secondary);
+      font-size: 18px;
+    }
+
+    .icon {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    #captureBtn {
+      display: none;
+      margin: auto;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-prescription-bottle-alt"></i> AI Prescription Reader</h1>
+    <div class="buttons">
+      <button onclick="startCamera()"><i class="fas fa-camera icon"></i>Camera</button>
+      <label><i class="fas fa-file-pdf icon"></i>PDF<input type="file" accept="application/pdf" onchange="handlePDFUpload(event)"></label>
+      <label><i class="fas fa-image icon"></i>Image<input type="file" accept="image/*" onchange="handleImageUpload(event)"></label>
+    </div>
+
+    <video id="video" autoplay></video>
+    <button id="captureBtn" onclick="captureImage()">📸 Capture & Analyze</button>
+    <textarea id="textOutput" placeholder="Text will appear here..."></textarea>
+    <div id="output"></div>
+  </div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script>
+    const medicineList = {
+      'Paracetamol': 'Used for fever and pain relief.',
+      'Ibuprofen': 'Anti-inflammatory and pain reliever.',
+      'Amoxicillin': 'Antibiotic for bacterial infections.',
+      'Cetirizine': 'Used for allergies and runny nose.',
+      'Metformin': 'Used for Type 2 Diabetes.',
+      'Omeprazole': 'Reduces stomach acid, used for ulcers.',
+      'Azithromycin': 'Antibiotic for respiratory infections.',
+      'Loratadine': 'Relieves allergy symptoms.',
+      'Aspirin': 'Pain relief, reduces inflammation and risk of heart attacks.'
+    };
+
+    function getMedicineInfo(name) {
+      return medicineList[name] || "No info available.";
+    }
+
+    function highlightMedicines(text) {
+      let highlighted = text;
+      for (let med in medicineList) {
+        const regex = new RegExp(`\\b(${med})\\b`, 'gi');
+        highlighted = highlighted.replace(regex, '<span class="highlight">$1</span>');
+      }
+      return highlighted;
+    }
+
+    function analyzeText(text) {
+      const textArea = document.getElementById('textOutput');
+      textArea.value = text;
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = "";
+
+      const found = [];
+      for (let med in medicineList) {
+        if (new RegExp(`\\b${med}\\b`, 'i').test(text)) {
+          found.push(med);
+        }
+      }
+
+      if (found.length === 0) {
+        outputDiv.innerHTML = "<p>No medicines found.</p>";
+        return;
+      }
+
+      found.forEach(med => {
+        const info = getMedicineInfo(med);
+        const div = document.createElement('div');
+        div.className = 'medicine-card';
+        div.innerHTML = `<strong>${med}</strong><p>${info}</p>`;
+        outputDiv.appendChild(div);
+      });
+    }
+
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+
+    function startCamera() {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.style.display = "block";
+          document.getElementById('captureBtn').style.display = "block";
+          video.srcObject = stream;
+        })
+        .catch(() => alert("Camera access denied."));
+    }
+
+    function captureImage() {
+      const ctx = canvas.getContext('2d');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0);
+
+      const dataURL = canvas.toDataURL('image/png');
+      Tesseract.recognize(dataURL, 'eng').then(({ data: { text } }) => analyzeText(text));
+    }
+
+    function handleImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        Tesseract.recognize(e.target.result, 'eng')
+          .then(({ data: { text } }) => analyzeText(text));
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handlePDFUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const typedarray = new Uint8Array(e.target.result);
+        pdfjsLib.getDocument(typedarray).promise.then(pdf => {
+          pdf.getPage(1).then(page => {
+            page.getTextContent().then(content => {
+              const text = content.items.map(item => item.str).join(' ');
+              analyzeText(text);
+            });
+          });
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  </script>
+</body>
+</html>

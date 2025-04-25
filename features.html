@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features</title>
+  <link rel="stylesheet" href="preloaderStyle.css">
+  <link rel="stylesheet" href="src/css/index.css" />
+  <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .buttons .login,
+    .buttons .get-started,
+    .dark-mode-toggle {
+      font-size: 18px;
+      padding: 10px 15px;
+    }
+
+    .navbar {
+      background-color: rgb(153, 207, 225);
+      color: black;
+      padding: 10px;
+    }
+
+    .navbar.dark-mode {
+      background-color: black;
+      color: white;
+    }
+
+    .dark-mode .logo img {
+      filter: brightness(0) invert(1);
+    }
+
+    body.dark-mode #logo img:hover {
+      filter: brightness(0.8);
+    }
+
+    .navbar.dark-mode .logo-img {
+      filter: brightness(0) invert(1);
+    }
+
+    .menu ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+    }
+
+    .menu li {
+      margin-right: 20px;
+    }
+
+    .menu a {
+      color: black;
+      border: 1px solid black;
+      padding: 6px 10px;
+      text-decoration: none;
+    }
+
+    .menu a:hover {
+      background-color: blue;
+      color: white;
+    }
+
+    .dark-mode .menu a {
+      color: white;
+      border: 1px solid lightgrey;
+    }
+
+    .dark-mode {
+      background-color: rgba(50, 50, 50, 0.95);
+    }
+
+    .dark-mode .menu a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .light-dark-btn {
+      background-color: transparent;
+      border: 1px solid black;
+      cursor: pointer;
+      color: black;
+      border-radius: 50px;
+    }
+
+    .light-dark-btn:hover {
+      color: blue;
+    }
+    
+
+    .dark-mode .menu a {
+      color: white;
+      /* Dark mode link color */
+      border: 1px solid lightgrey;
+      /* Light grey border in dark mode */
+    }
+
+    .dark-mode {
+      background-color: rgba(50, 50, 50, 0.95);
+      /* Slightly gray background with high opacity */
+    }
+
+    .dark-mode .menu a:hover {
+      background-color: white;
+      /* White background on hover in dark mode */
+      color: black;
+      /* Black text on hover in dark mode */
+    }
+
+    .light-dark-btn {
+      background-color: transparent;
+      border: 1px solid black;
+      /* Black border */
+      cursor: pointer;
+      color: black;
+      /* Default button color */
+    }
+
+    .light-dark-btn:hover {
+      color: blue;
+      /* Change color on hover */
+    }
+
+    .dark-mode .light-dark-btn {
+      color: white;
+      /* Button color in dark mode */
+      border: 1px solid lightgrey;
+      /* Light grey border */
+    }
+
+    .dark-mode .light-dark-btn:hover {
+      background-color: white;
+      /* Background on hover in dark mode */
+      color: black;
+      /* Text color on hover in dark mode */
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+    }
+
+    /* dark mode hove effect on logo */
+    body.dark-mode #logo img:hover {
+      filter: brightness(0) invert(1);
+      /* Change black logo to white */
+      filter: brightness(0.8);
+      /* Change the brightness to light grey on hover */
+    }
+
+    .navbar.dark-mode .logo-img {
+      filter: brightness(0) invert(1);
+      /* Change logo color in dark mode */
+    }
+
+    /* .menu ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+    }
+
+    .menu a {
+      color: black;
+      Light mode link color
+      border: 2px solid black;
+      border-radius:7px;
+      padding: 3px 7px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .menu ul li a:hover {
+      background-color: rgb(255, 255, 255);
+      Blue background on hover
+      color: white;
+      White text on hover
+    } */
+    
+
+    /* .dark-mode .menu a {
+      color: white;
+      Dark mode link color
+      border: 1px solid lightgrey;
+      Light grey border in dark mode
+    } */
+
+    .dark-mode {
+      background-color: rgba(50, 50, 50, 0.95);
+      /* Slightly gray background with high opacity */
+    }
+
+    /* .dark-mode .menu a:hover {
+      background-color: white;
+      White background on hover in dark mode
+      color: black;
+      Black text on hover in dark mode
+    } */
+
+    .light-dark-btn {
+
+      background-color: transparent;
+      border: 1px solid black;
+      /* Black border */
+      cursor: pointer;
+      color: black;
+      /* Default button color */
+      width: 50px;
+    }
+
+    .light-dark-btn {
+      background-color: transparent;
+      border: 1px solid black;
+      cursor: pointer;
+      color: black;
+      border-radius: 50px;
+    }
+
+    .light-dark-btn:hover {
+      color: blue;
+      /* Change color on hover */
+    }
+
+    .dark-mode .light-dark-btn {
+      color: white;
+      /* Button color in dark mode */
+      border: 1px solid lightgrey;
+      /* Light grey border */
+    }
+
+    .dark-mode .light-dark-btn:hover {
+      background-color: white;
+      /* Background on hover in dark mode */
+      color: black;
+      /* Text color on hover in dark mode */
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+    }
+
+    /* end */
+    /* adding dark mode for contact info */
+    .content {
+      transition: background-color 0.3s, color 0.3s;
+      /* Smooth transitions */
+    }
+    #featureh1{
+      font-size:3rem;
+      color:rgb(0, 0, 0);
+      margin-bottom:2rem;
+    }
+    #feature{
+           font-size:2rem;
+           color:black;
+           margin-bottom:4rem;
+    }
+
+    .dark-mode .content {
+      background-color: rgba(50, 50, 50, 0.95);
+      /* Match body background opacity */
+      padding: 20px;
+      /* Optional: add padding for better spacing */
+    }
+
+    /* end */
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+      animation: logoAnimation 1s ease forwards;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-right: 10px;
+      /* Space between the text and the logo image */
+    }
+
+    .letter {
+
+      display: inline-block;
+      font-size: 2rem;
+      animation: letterDrop 0.5s ease forwards;
+
+      
+      display: inline-block;
+      font-size: 2rem;
+      animation: letterDrop 0.5s ease forwards;
+      animation-delay: calc(var(--letter-index)* 0.1s);
+
+    }
+
+    .letter {
+      display: inline-block;
+      font-size: 2rem;
+
+    }
+
+    .red {
+      color: red;
+      /* Change the color of letters in this class to red */
+    }
+
+    
+
+    /* .menu ul {
+
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .menu ul li {
+      display: inline;
+      margin-right: 7px;
+    }
+
+    .menu ul li a {
+      padding: 10px 15px;
+      color: black;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .menu ul li a:hover {
+
+      background-color: #000;
+
+      background-color: blue;
+
+      color: white;
+    }
+
+    .menu ul li a.active {
+      color: white;
+      background-color: #000;
+
+    }
+    ul li a:hover {
+    color: blue !important;
+    }
+
+    } */
+
+
+
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background-color: #e6eef3;
+      border-radius: 5px;
+      flex-grow: 1;
+    }
+
+    h1 {
+      color: blue;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+  
+    /* Added the hover animation on the footer social icons */
+    .social-icon {
+      transition: transform 0.3s ease;
+      /* Smooth transition effect */
+    }
+
+    .social-icon:hover {
+      transform: scale(1.3);
+      /* Scale the element to 1.3 times its size */
+    }
+
+    .fa-facebook:hover {
+      color: blue;
+      /* Icon color change to blue on hover */
+    }
+
+    .fa-x-twitter:hover {
+      color: black;
+      /* Icon color change to black on hover */
+    }
+
+    .fa-instagram:hover {
+      color: orangered;
+      /* Icon color change to orangered on hover */
+    }
+
+    .fa-linkedin-in:hover {
+      color: rgb(16, 13, 195);
+      /* Icon color change to rgb(16, 13, 195) on hover */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo Animation */
+        @keyframes logoAnimation {
+          0% {
+            opacity: 0;
+            transform: translateX(-100px);
+            /* Start from the left */
+          }
+
+          50% {
+            transform: translateX(10px);
+            /* Move slightly to the right */
+          }
+        }
+
+          /* Logo Animation */
+          @keyframes logoAnimation {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px); /* Start from the left */
+      }
+      50% {
+        transform: translateX(10px); /* Move slightly to the right */
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0); /* End at original position */
+      }
+    }
+
+    footer {
+      background-color: #C4D7FF;
+      color: white;
+      text-align: center;
+      padding: 10px 0; /* Padding for the footer */
+      
+    }
+
+    /* Letter Drop Animation */
+    @keyframes letterDrop {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(10px); /* Slight bounce */
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    #thankYouMessage {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+      display: none; /* Initially hidden */
+    }
+
+    .translate-btn {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 9px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .translate-btn:hover {
+      background-color: #3498db;
+    }
+
+    .g-translate-popup {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-container {
+      width: 296px;
+      height: 290px;
+      position: relative;
+      border-radius: 0% 10% 0% 10%;
+    }
+
+    .card-container::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      inset: 0;
+    
+      transform: translate3d(0, 0, 0) scale(0.95);
+      filter: blur(20px);
+    }
+
+    .card {
+      width: 90%;
+      height: 70%;
+      border-radius: inherit;
+      overflow: hidden;
+      box-shadow: 0 8px 8px rgba(88, 86, 86, 0.8); /* Adds a subtle shadow */
+
+    }
+
+    .card .img-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2980b9;
+      transition: scale 0.6s, rotate 0.6s, filter 1s;
+      color:black;
+    }
+
+    .card .img-content svg {
+      width: 50px;
+      height: 50px;
+      fill: #e8e8e8;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card .content {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 90%;
+      font-size: 1.3rem;
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      color: #000000;
+      background-color:#aedaf7;
+      padding: 20px;
+      line-height: 1.5;
+      border-radius: 0% 10% 0% 10%;
+      
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(50px);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card .content .heading {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .card:hover .content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover .img-content {
+      scale: 2.5;
+      rotate: 30deg;
+      filter: blur(7px);
+    }
+
+    .card:hover .img-content svg {
+      fill: transparent;
+    }
+
+    
+
+    /* Navbar Styles */
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      padding: 10px; /* Adjust padding for better spacing */
+      background-color: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+      border-radius: 30px; /* More rounded corners */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    }
+
+    .nav-links li {
+      margin: 0 15px; /* Space between links */
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333; /* Dark text color */
+      font-weight: 400; /* Regular font weight */
+      font-size: 16px; /* Adjust font size */
+      padding: 10px 15px; /* Add padding for clickable area */
+      border: none; /* Remove border */
+      border-radius: 20px; /* Rounded corners for links */
+      transition: color 0.3s; /* Smooth transition */
+    }
+
+    /* Hover effect */
+    .nav-links a:hover {
+      color: gray; 
+      background: none;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+      <div class="box-wrap">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box three"></div>
+        <div class="box four"></div>
+        <div class="box five"></div>
+        <div class="box six"></div>
+      </div>
+    </div>
+  </div>
+  <!-- ------------------------------Added a navbar---------------------------------- -->
+
+  <header class="navbar">
+    <div class="container">
+
+      <div class="logo">
+        <div class="brand-name">
+          <span class="letter red" style="--letter-index: 1;">R</span>
+          <span class="letter red" style="--letter-index: 2;">E</span>
+          <span class="letter red" style="--letter-index: 3;">S</span>
+          <span class="letter red" style="--letter-index: 4;">-</span>
+          <span class="letter" style="--letter-index: 5;">Q</span>
+          <span class="letter" style="--letter-index: 6;">-</span>
+          <span class="letter" style="--letter-index: 7;">R</span>
+          <span class="letter" style="--letter-index: 8;">U</span>
+          <span class="letter" style="--letter-index: 9;">S</span>
+          <span class="letter" style="--letter-index: 10;">H</span>
+        </div>
+        <a href="./index.html">
+        <img src="images/logo2-w.webp" alt="Ambulance Monitoring System Logo" style="width: 50px; height: auto" />
+        </a>
+      </div>
+
+      <nav class="menu">
+        <ul class="nav-links">
+          <li>
+            <a href="./index.html" id="home-link" onclick="changeContent('home')">Home</a>
+          </li>
+          <li>
+            <a href="features.html" id="features-link" onclick="changeContent('features')">Features</a>
+          </li>
+          <li>
+            <a href="team.html" id="team-link" onclick="changeContent('team')">Team</a>
+          </li>
+          <li>
+            <a href="contact.html" id="contact-link" onclick="changeContent('contact')">Contact</a>
+          </li>
+          <li>
+            <a href="Feedback.html" id="feedback-link" onclick="changeContent('feedback')">Feedback</a>
+          </li>
+          <li>
+            <a href="nearby.html" id="nearby-link" onclick="changeContent('nearby')">Nearby</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <!-- -------------------------------------------------------------------------- -->
+   
+  </div>
+  </header>
+
+  <!-- -------------------------------------------------------------------------- -->
+  <div class="content" id="main-content">
+    <h1 id="featureh1">Features</h1>
+    <p id="feature"><b>Here are the features of Res-Q-Rush</b></p>
+    <div class="features-grid">
+     
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>Quick Emergency Response</h3>
+  </div>
+  <div class="content">
+    <i class="fas fa-ambulance feature-icon"></i>
+    <p>
+    
+      Immediate notifications to the nearest ambulance service.
+    </p>
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>Real-Time Tracking</h3>
+  </div>
+  <div class="content">
+    <i class="fas fa-map-marked-alt feature-icon"></i>
+   
+    <p>Track ambulances in real-time for better coordination.</p>
+   
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>Enhanced Communication</h3>
+  
+  </div>
+  <div class="content">
+    <i class="fas fa-comments feature-icon"></i>
+    <p>Instant communication between dispatch and ambulances.</p>
+   
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>Resource Management</h3>
+ 
+  </div>
+  <div class="content">
+    <i class="fas fa-cogs feature-icon"></i>
+   
+    <p>Efficient allocation of resources for emergencies.</p>
+    
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>User-Friendly Interface</h3>
+  
+  </div>
+  <div class="content">
+    <i class="fas fa-user-friends feature-icon"></i>
+  
+    <p>Easy-to-navigate system for users and providers.</p>
+  
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+    <h3>24/7 Availability</h3>
+
+  </div>
+  <div class="content">
+    <i class="fas fa-clock feature-icon"></i>
+   
+    <p>Always available support and monitoring services.</p>
+  
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>Patient Health Monitoring</h3>
+  
+  </div>
+  <div class="content">
+    <i class="fas fa-heartbeat feature-icon"></i>
+  
+    <p>Real-time monitoring of patient vitals during transport.</p>
+  
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h4>Emergency Contact Integration</h4>
+  
+  </div>
+  <div class="content">
+    <i class="fas fa-phone-alt feature-icon"></i>
+   
+    <p>Seamless integration with emergency contact services.</p>
+
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h4>Driver Performance Monitoring</h4>
+ 
+  </div>
+  <div class="content">
+    <i class="fas fa-tachometer-alt feature-icon"></i>
+  
+    <p>Real-time tracking of driver behavior and performance on the road.</p>
+  
+  </div>
+</div>
+</div>
+<div class="card-container">
+  <div class="card">
+  <div class="img-content">
+   
+    <h3>Feedback System</h3>
+  </div>
+  <div class="content">
+    <i class="fas fa-comments-dollar feature-icon"></i>
+   
+    <p>Collecting feedback to improve service quality.</p>
+ 
+  </div>
+</div>
+</div>
+ 
+   
+     
+     
+    
+   
+  
+  
+    
+    
+    
+  </div>
+
+  </div>
+
+ 
+  <footer style="color: #f3f4f6; text-align: center; width: 100%; height: 100%;">
+    <style>
+      /* Base styles for footer container */
+      .new-footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Ensures content is centered horizontally */
+        align-items: center; /* Ensures content is centered vertically */
+        padding: 20px 0;
+        background-color: #C4D7FF;
+        color: #f3f4f6;
+        box-sizing: border-box;
+      }
+  
+      /* Styling for each footer section */
+      .new-footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 20px;
+        text-align: center;
+        align-self: center;
+      }
+  
+      .new-footer-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #2980b9;
+      }
+  
+      .new-footer-section a {
+        color: #000000;
+        text-decoration: none;
+      }
+  
+      .new-footer-section a:hover {
+        text-decoration: underline;
+      }
+  
+      .new-social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        height: auto;
+      }
+  
+      .new-newsletter-input {
+        padding: 10px;
+        width: 60%;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+  
+      .new-newsletter-button {
+        background-color: #e81a1a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+  
+      /* Media query for large screens (Desktop) */
+      @media (max-width: 1250px) {
+        .new-footer-container {
+          flex-direction: column; /* Stack sections vertically */
+          align-items: center;    /* Center horizontally */
+          justify-content: center; /* Center vertically */
+        }
+  
+        .new-footer-section {
+          margin-bottom: 20px; /* Space between sections */
+          width: 100%; /* Full width in column layout */
+        }
+  
+        .new-newsletter-input {
+          width: 90%; /* Slightly reduce width of input field */
+        }
+      }
+  
+      /* Media query for medium screens (Tablets) */
+      @media (max-width: 768px) {
+        .new-footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center; /* Ensures text is centered */
+        }
+  
+        .new-footer-section {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+  
+        .new-newsletter-input {
+          width: 90%; /* Full width for smaller screens */
+        }
+      }
+  
+      /* Media query for small screens (Mobile) */
+      @media (max-width: 400px) {
+        .new-footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+  
+        .new-footer-section {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+  
+        .new-newsletter-input {
+          width: 90%; /* Full width for smaller screens */
+        }
+  
+        .new-social-icons {
+          gap: 10px; /* Reduce gap between social icons */
+        }
+  
+        .new-newsletter-input {
+          padding: 8px;
+          font-size: 14px; /* Slightly smaller input on mobile */
+        }
+  
+        .new-newsletter-button {
+          font-size: 14px; /* Smaller button text */
+          padding: 8px 16px; /* Adjust button size */
+        }
+      }
+  
+    </style>
+  
+    <div class="new-footer-container">
+      <div class="new-footer-section">
+        <h3>Quick Links</h3>
+        <ul style="list-style-type: none; padding: 0;">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="sitemap.html">Site Map</a></li>
+        </ul>
+      </div>
+      <div class="new-footer-section">
+        <h3>Contact Info</h3>
+        <p style="color: #000;">GGSIPU, Dwarka, India</p>
+        <a href="mailto:emergency@ambulanceservice.in" style="color: #000000;">abc@gmail.in</a>
+        <p style="color: #000000;">Phone: <a href="tel:+91-911-1234567" style="color: #000000;">+91-911-1234567</a></p>
+      </div>
+      <div class="new-footer-section">
+        <h3>Follow Us</h3>
+        <div class="new-social-icons">
+          <a href="https://www.facebook.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.twitter.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com" style="color: black; font-size: 1.5rem;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="new-footer-section">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form action="#">
+          <input class="new-newsletter-input" type="email" placeholder="Your Email" required>
+          <button class="new-newsletter-button" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+     
+  <script src="preloader.js"></script>
+  <script>
+    // adding code for dark mode
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.getElementById('dark-mode-toggle');
+      const darkModeButton = document.querySelector('.dark-mode-toggle');
+      const logoImage = document.querySelector('.logo img'); // Select the logo image
+      const navbar = document.querySelector('.navbar'); // Select the navbar
+
+      // Reset to light mode for the Contact page
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("light-mode");
+      darkModeButton.innerHTML = '<i class="fa-solid fa-moon"></i>'; // Set icon for light mode
+      navbar.classList.remove("dark-mode"); // Ensure navbar is in light mode
+
+      // Clear the sessionStorage for theme on this page
+      sessionStorage.removeItem("theme");
+
+      toggleButton.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        navbar.classList.toggle('dark-mode'); // Toggle dark mode for navbar
+
+        // Update sessionStorage based on current mode
+        if (document.body.classList.contains('dark-mode')) {
+          sessionStorage.setItem("theme", "dark");
+          darkModeButton.innerHTML = '<i class="fa-solid fa-sun"></i>'; // Change icon
+        } else {
+          sessionStorage.setItem("theme", "light");
+          darkModeButton.innerHTML = '<i class="fa-solid fa-moon"></i>'; // Change icon
+        }
+      });
+    });
+
+    // end
+  </script>
+  <script>
+    // Back to Top Button functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      var backToTopBtn = document.getElementById("backToTopBtn");
+
+      backToTopBtn.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  </footer>
+
+  <script>
+    // Accordion Functionality
+    const accordionHeader = document.querySelector('.accordion__header');
+    const accordionContent = document.querySelector('.accordion__content');
+
+    accordionHeader.addEventListener('click', function () {
+      if (accordionContent.style.display === 'block') {
+        accordionContent.style.display = 'none';
+      } else {
+        accordionContent.style.display = 'block';
+      }
+    });
+
+    // Form Submission Functionality
+    const form = document.getElementById('subscribeForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      // Show the thank you message
+      thankYouMessage.style.display = 'block';
+
+      // Hide the accordion content after submission
+      accordionContent.style.display = 'none';
+
+      // Clear the input field
+      document.getElementById('emailInput').value = '';
+    });
+  </script>
+
+<!-- Add this div for the translator popup -->
+<div id="gTranslate" class="g-translate-popup" style="display:none;">
+  <div class="gtranslate_wrapper"></div>
+</div>
+
+<script>
+  window.gtranslateSettings = {
+    "default_language": "en",
+    "detect_browser_language": true,
+    "wrapper_selector": ".gtranslate_wrapper",
+    "alt_flags": {"en": "usa"}
+  }
+</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+<script>
+  const translateBtn = document.getElementById('translateBtn');
+  const gTranslate = document.getElementById('gTranslate');
+
+  translateBtn.addEventListener('click', function() {
+    if (gTranslate.style.display === 'none') {
+      gTranslate.style.display = 'block';
+    } else {
+      gTranslate.style.display = 'none';
+    }
+  });
+
+  // Close the translator popup when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!gTranslate.contains(event.target) && event.target !== translateBtn) {
+      gTranslate.style.display = 'none';
+    }
+  });
+</script>
+
+  <button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top">
+    <div class="scroll-top-icon">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+    <svg class="progress-ring" width="60" height="60">
+        <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
+            cy="30"></circle>
+    </svg>
+</button>
+<style>
+    .scroll-top {
+        position: fixed;
+        right: 1.6%;
+        background: linear-gradient(100deg, #1ca6f0, #3c7aff, #05deff);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        overflow: visible;
+        z-index: 10;
+        bottom: 75px;
+        /* Ensure button is on top */
+    }
+
+    .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .scroll-top:hover {
+        transform: scale(1.1);
+        /* Subtle scaling instead of expanding */
+        box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
+        /* Slightly larger shadow */
+    }
+
+    .scroll-top:active {
+        transform: scale(1.05);
+        /* Minor scale reduction on click */
+    }
+
+    .scroll-top-icon {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.3s ease;
+    }
+
+    .scroll-top:hover .scroll-top-icon {
+        transform: translateY(-3px);
+    }
+
+    /* Progress Ring Styling */
+    .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+        /* To start from the top */
+    }
+
+    .progress-ring__circle {
+        transition: stroke-dashoffset 0.35s;
+        transform-origin: 50% 50%;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.7);
+        }
+
+        100% {
+            box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
+        }
+    }
+
+    .scroll-top:hover {
+        animation: pulse 1.5s infinite;
+    }
+
+    .scroll-top.show {
+        animation: none;
+        /* No animation when showing the button */
+    }
+
+    .scroll-top.show:hover {
+        animation: pulse 1.5s infinite;
+        /* Pulse on hover */
+    }
+</style>
+<script>
+    // Get the button
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    const progressCircle = document.querySelector(".progress-ring__circle");
+    const radius = progressCircle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    // Set the circle progress properties
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = circumference;
+
+    // Function to show or hide the button based on scroll position
+    function toggleScrollButton() {
+        if (window.scrollY > 100) {
+            scrollToTopBtn.classList.add("show");
+        } else {
+            scrollToTopBtn.classList.remove("show");
+        }
+    }
+
+    // Function to set the scroll progress on the button ring
+    function setProgress(percent) {
+        const offset = circumference - (percent / 100) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+    }
+
+    // Listen for scroll events to update button visibility and progress
+    window.addEventListener("scroll", () => {
+        toggleScrollButton();
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        setProgress(scrollPercent);
+    });
+
+    // Smooth scroll to top when the button is clicked
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+  </script>
+
+  </body>
+
+</html>
+

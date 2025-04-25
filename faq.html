@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+   /* faq section styles */
+   .faq-section {
+      background-color: #e7f3fe;
+      display: flex;
+      margin: 2rem 1rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .faq-h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .faq {
+      margin-bottom: 15px;
+      width: 100%;
+      /* Full width by default */
+      background-color: #000000;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq:hover {
+      background-color: #e31616;
+      /* Slight hover effect for FAQs */
+    }
+
+    .faq-question {
+      background-color: #369ef9;
+      color: whitesmoke;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background-color: whitesmoke;
+      color:#369ef9 ;
+      /* Lighter green on hover */
+    }
+
+    .faq-question::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #333;
+      /* Downward pointing wide "V" */
+      transition: transform 0.3s ease;
+
+      margin-right: 10px;
+    }
+
+    .faq.active .faq-question::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      opacity: 0;
+      max-height: 0;
+      /* Initially hidden */
+      overflow: hidden;
+      /* Hide content when not visible */
+      padding: 0 10px;
+      background-color: #fff;
+      transition: max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+      /* Smooth transition */
+      border-top: 1px solid #ccc;
+    }
+
+    .faq-answer p {
+      margin-bottom: 10px;
+    }
+
+    .faq.active .faq-answer {
+  opacity: 1;
+  max-height: 200px;
+  padding: 10px;
+  transition: max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+}
+    .faq.active .faq-answer p {
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #logo img:hover {
+      background-color: #c4d7ff;
+    }
+
+    .dark-mode .light-dark-btn {
+      color: white;
+      /* Button color in dark mode */
+      /* border: 1px solid lightgrey; */
+      /* Light grey border */
+    }
+
+    .dark-mode .light-dark-btn:hover {
+      /* background-color: white; */
+      /* Background on hover in dark mode */
+      color: black;
+      /* Text color on hover in dark mode */
+    }
+
+    .dark-mode .main_content p {
+      color: wheat;
+    }
+
+    .dark-mode .content h1 {
+      color: wheat;
+
+    }
+
+    /* more addition for dark mode theme */
+
+    .dark-mode .logo img {
+      filter: brightness(0) invert(1);
+      /* Inverts the color to make it white */
+    }
+
+    .dark-mode .content {
+      background-color: rgba(50, 50, 50, 0.95);
+      /* Match body background opacity */
+      padding: 20px;
+      /* Optional: add padding for better spacing */
+    }
+
+    /* Navbar Styles */
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      padding: 10px;
+      background-color: #f0f0f0; /* Light background color */
+      border-radius: 25px; /* Rounded corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .nav-links li {
+      margin: 0 15px; /* Space between links */
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333; /* Dark text color */
+      font-weight: 500; /* Medium font weight */
+      transition: color 0.3s; /* Smooth color transition */
+    }
+
+    .nav-links a:hover {
+      color: #007bff; /* Change color on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <div class="brand-name">
+          <span class="ambu">Ambu</span>Flow
+        </div>
+        <img src="images/logo2-w.webp" alt="Ambulance Monitoring System Logo" style="width: 50px; height: auto" />
+      </div>
+      <!-- Navbar Section -->
+      <nav class="menu">
+        <ul class="nav-links">
+          <li>
+            <a href="./index.html" id="home-link" onclick="changeContent('home')">Home</a>
+          </li>
+          <li>
+            <a href="features.html" id="features-link" onclick="changeContent('features')">Features</a>
+          </li>
+          <li>
+            <a href="team.html" id="team-link" onclick="changeContent('team')">Team</a>
+          </li>
+          <li>
+            <a href="contact.html" id="contact-link" onclick="changeContent('contact')">Contact</a>
+          </li>
+          <li>
+            <a href="Feedback.html" id="feedback-link" onclick="changeContent('feedback')">Feedback</a>
+          </li>
+          <li>
+            <a href="nearby.html" id="nearby-link" onclick="changeContent('nearby')">Nearby</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="buttons">
+        <a href="login.html" class="login">Log in</a>
+        <a href="up.html" class="get-started">Get started</a>
+      </div>
+    </div>
+    <h1>About Res-Q-Rush</h1>
+  </header>
+  <div class="contact-feature faq-section" id="faq-section">
+    <div class="faq-hd">
+      <div class="faq-h2">Frequently Asked Questions [ FAQs ]</div>
+      <!-- <div>Frequently Asked Questions</div> -->
+    </div>
+    <div class="faqs">
+
+      <div class="faq">
+        <button class="faq-question">What should I do while waiting for the ambulance?</button>
+        <div class="faq-answer">
+          <p>Stay calm, ensure the patient is in a safe environment, and prepare any relevant medical information. If
+            possible, clear a path for the ambulance and stay on the line with emergency services if needed.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-question">How do I track an ambulance in real-time?</button>
+        <div class="faq-answer">
+          <p>After requesting an ambulance, you can track it in real-time by logging into the system and accessing the
+            live map feature.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What are the emergency protocols if an ambulance is delayed?</button>
+        <div class="faq-answer">
+          <p>If the ambulance is delayed, you will receive updates through the system. In case of a significant delay,
+            please contact emergency services for further instructions.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I provide medical information for the patient in advance?</button>
+        <div class="faq-answer">
+          <p>Yes, during your request, you can provide essential medical details to help paramedics prepare better for
+            the situation.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Are there any charges for using the ambulance tracking service?</button>
+        <div class="faq-answer">
+          <p>The ambulance tracking service is free of charge, but regular ambulance service fees may apply depending
+            on the provider.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">How can I request special medical equipment or personnel on the
+          ambulance?</button>
+        <div class="faq-answer">
+          <p>During your request, you can specify if the patient needs specific medical equipment or personnel, such
+            as a ventilator or a specialized doctor.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What should I do if the location of the ambulance is not updating?</button>
+        <div class="faq-answer">
+          <p>If the ambulance location is not updating, try refreshing the page. If the issue persists, report a
+            technical issue through the system or contact support.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I schedule an ambulance in advance?</button>
+        <div class="faq-answer">
+          <p>Yes, the system allows you to schedule an ambulance for non-emergency situations in advance.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What should I do if the ambulance cannot find my location?</button>
+        <div class="faq-answer">
+          <p>If the ambulance has trouble finding your location, ensure your address is accurate. You can also contact
+            the driver directly through the provided contact information to give specific directions.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I request an ambulance for multiple patients?</button>
+        <div class="faq-answer">
+          <p>Yes, you can request an ambulance for multiple patients. Be sure to mention the number of patients and
+            their
+            condition during your request so that appropriate resources can be dispatched.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">What happens if I need to cancel my ambulance request?</button>
+        <div class="faq-answer">
+          <p>You can cancel your ambulance request through the system before the ambulance arrives. However,
+            cancellation
+            charges may apply depending on the provider's policy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const faqButtons = document.querySelectorAll('.faq-question');
+
+      faqButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const faq = button.parentElement;
+          const answer = faq.querySelector('.faq-answer');
+
+          // Toggle active class
+          faq.classList.toggle('active');
+
+          // Control the max-height for slide effect
+          if (faq.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px'; // Set height based on content
+          } else {
+            answer.style.maxHeight = '0'; // Set height to zero to collapse
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+

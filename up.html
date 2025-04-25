@@ -1,0 +1,975 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register & Login</title>
+
+    <link rel="stylesheet" href="src/css/up.css" />
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+
+    <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="stylesheet" href="src/css/up.css" />
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <body>
+    preloader
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="container">
+
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock" id="toggle-password"></i>
+                        <input type="password" placeholder="Password" id="password-input" />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="https://www.google.com" target="_blank" class="social-icon">
+                            <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
+                        </a>
+                        <a href="https://facebook.com/YourPage" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267B2;"></i>
+                        </a>
+                        <a href="https://github.com/YourGitHubProfile" target="_blank" class="social-icon">
+                            <i class="fab fa-github" style="font-size: 24px; color: #333;"></i>
+                        </a>
+                    </div>
+                </form>
+                <form action="#" class="sign-up-form">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock" id="toggle-password-signup"></i>
+                        <input type="password" placeholder="Password" id="password-input-signup" />
+                    </div>
+                     Strong password recommendations 
+                    <div class="password-recommendations">
+                        <small style="color: red;">* Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.</small>
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="https://www.google.com" target="_blank" class="social-icon">
+                            <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
+                        </a>
+                        <a href="https://facebook.com/YourPage" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267B2;"></i>
+                        </a>
+                        <a href="https://github.com/YourGitHubProfile" target="_blank" class="social-icon">
+                            <i class="fab fa-github" style="font-size: 24px; color: #333;"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-lock" id="toggle-password"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                id="password-input"
+              />
+            </div>
+            <input type="submit" value="Login" class="btn solid" />
+            <p class="social-text">Or Sign in with social platforms</p>
+            <div class="social-media">
+              <a
+                href="https://www.google.com"
+                target="_blank"
+                class="social-icon"
+              >
+                <i
+                  class="fab fa-google"
+                  style="font-size: 24px; color: #4285f4"
+                ></i>
+              </a>
+              <a
+                href="https://facebook.com/YourPage"
+                target="_blank"
+                class="social-icon"
+              >
+                <i
+                  class="fab fa-facebook-f"
+                  style="font-size: 24px; color: #4267b2"
+                ></i>
+              </a>
+
+         <div class="forms-container">
+               <div class="signin-signup">
+               <form action="#" class="sign-in-form">
+               <h2 class="title">Sign in</h2>
+               <div class="input-field">
+                   <i class="fas fa-user"></i>
+                   <input type="text" placeholder="Username" />
+               </div>
+               <div class="input-field">
+                  <i class="fas fa-lock" id="toggle-password"></i>
+                  <input
+                      type="password"
+                      placeholder="Password"
+                      id="password-input"
+                  />
+               </div>
+               <input type="submit" value="Login" class="btn solid" />
+               <p class="social-text">Or Sign in with social platforms</p>
+               <div class="social-media">
+               <a
+                   href="https://www.google.com"
+                   target="_blank"
+                   class="social-icon"
+               >
+                 <i
+                    class="fab fa-google"
+                    style="font-size: 24px; color: #4285f4"
+                  >
+                  </i>
+               </a>
+               <a
+                  href="https://facebook.com/YourPage"
+                  target="_blank"
+                  class="social-icon"
+                >
+                  <i
+                     class="fab fa-facebook-f"
+                     style="font-size: 24px; color: #4267b2"
+                   >
+                  </i>
+               </a>
+
+              <a
+                href="https://github.com/YourGitHubProfile"
+                target="_blank"
+                class="social-icon"
+              >
+                <i
+                  class="fab fa-github"
+                  style="font-size: 24px; color: #333"
+                ></i>
+              </a>
+              </div>
+            </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock" id="toggle-password-signup"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                id="password-input-signup"
+              />
+            </div>
+            <input type="submit" class="btn" value="Sign up" />
+            <p class="social-text">Or Sign up with social platforms</p>
+            <div class="social-media">
+              <a
+                href="https://www.google.com"
+                target="_blank"
+                class="social-icon"
+              >
+                <i
+                  class="fab fa-google"
+                  style="font-size: 24px; color: #4285f4"
+                ></i>
+              </a>
+              <a
+                href="https://facebook.com/YourPage"
+                target="_blank"
+                class="social-icon"
+              >
+                <i
+                  class="fab fa-facebook-f"
+                  style="font-size: 24px; color: #4267b2"
+                ></i>
+              </a>
+              <a
+                href="https://github.com/YourGitHubProfile"
+                target="_blank"
+                class="social-icon"
+              >
+                <i
+                  class="fab fa-github"
+                  style="font-size: 24px; color: #333"
+                ></i>
+              </a>
+            </div>
+          </form>
+        </div>
+
+      <div class="panels-container">
+        <a href="index.html" class="homeBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 20"
+            width="30"
+            height="30"
+          >
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
+        </a>
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+              Discover new experiences with AmbuFlow! <br />Get access to
+              exclusive content and features. <br />
+              Create your account.
+            </p>
+            <a href="index.html" class="homeBtn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox=" 0 0 24 20"
+                width="30"
+                height="30"
+              >
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </a>
+            <button class="btn transparent" id="sign-up-btn">Sign up</button>
+          </div>
+          <img src="img/log.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+
+            <p>
+                Welcome to our community
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Sign in
+            </button>
+
+            <p>Welcome to our community</p>
+            <button class="btn transparent" id="sign-in-btn">Sign in</button>
+
+          </div>
+          <img src="img/register.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="preloader.js"></script>
+   
+    <script>
+
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        // Add sign-up-mode class to container by default
+        container.classList.add("sign-up-mode");
+
+        sign_up_btn.addEventListener("click", () => {
+          container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener("click", () => {
+          container.classList.remove("sign-up-mode");
+        });
+
+        // Sign in form submission
+        document.querySelector(".sign-in-form").addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          // Get the input values
+          const username = document.querySelector(".sign-in-form input[type='text']").value;
+          const password = document.querySelector(".sign-in-form input[type='password']").value;
+
+          // Dummy login logic for demo purposes
+          if (username === 'admin' && password === 'password') {
+            alert('Login successful!');
+            // Redirect to dashboard page
+            window.location.href = 'index.html';
+          } else {
+            alert('Invalid username or password');
+          }
+        });
+
+        // Sign up form submission
+        document.querySelector(".sign-up-form").addEventListener('submit', function(event) {
+
+      const sign_in_btn = document.querySelector("#sign-in-btn");
+      const sign_up_btn = document.querySelector("#sign-up-btn");
+      const container = document.querySelector(".container");
+
+      // Add sign-up-mode class to container by default
+      container.classList.add("sign-up-mode");
+
+      sign_up_btn.addEventListener("click", () => {
+        container.classList.add("sign-up-mode");
+      });
+
+      sign_in_btn.addEventListener("click", () => {
+        container.classList.remove("sign-up-mode");
+      });
+
+      // Sign in form submission
+      document.querySelector(".sign-in-form").addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const username = document.querySelector(".sign-in-form input[type='text']").value;
+          const password = document.querySelector(".sign-in-form input[type='password']").value;
+          // Remove the below block of code when the server is ready (Written just for testing)
+          if (username === "username" && password === "123456") {
+              console.log("Login successful!");
+              localStorage.setItem("JWTtoken", "dummyToken123"); // Example token
+              localStorage.setItem('userID', "test387398393")
+              localStorage.setItem("login", "success");
+              window.location.href = "hospital.html";
+          }
+          // Testing block ends here, proceed with actual request once the server is ready
+
+          const data = JSON.stringify({ username, password });
+          console.log(data);
+
+          // Uncomment the below code when MongoDB is ready
+          /*
+          try {
+              const response = await fetch("http://localhost:3000/login", {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json",
+                  },
+                  body: data,
+              });
+
+              if (!response.ok) {
+                  throw new Error("Login failed: " + response.statusText);
+              }
+
+              const result = await response.json();
+              console.log("Server response:", result);
+
+              localStorage.setItem("token", result.token);
+              console.log('Login successful!');
+              window.location.href = "hospital.html";
+          } catch (error) {
+              alert("Invalid username or password");
+              console.error("Error during login:", error);
+          }
+          */
+      });
+
+
+      // Sign up form submission
+      document.querySelector(".sign-up-form").addEventListener("submit", async function (event) {
+
+          event.preventDefault();
+
+          // Get the input values
+          const username = document.querySelector(".sign-up-form input[type='text']").value;
+          const email = document.querySelector(".sign-up-form input[type='email']").value;
+          const password = document.querySelector(".sign-up-form input[type='password']").value;
+
+
+          if (username === '' || email === '' || password === '') {
+            alert('Please fill in all fields');
+            return;
+          }
+
+          // Dummy signup logic for demo purposes
+          localStorage.setItem('username', username);
+          localStorage.setItem('email', email);
+          localStorage.setItem('password', password);
+          localStorage.setItem('isLoggedIn', 'true');
+
+          // Custom success message
+          alert('Your account is created successfully. Please login to access the website.'); 
+          // Redirect to dashboard page
+          window.location.href = 'index.html';
+        });
+
+        // Toggle password visibility
+        function togglePassword(fieldId, icon) {
+          const field = document.getElementById(fieldId);
+          const isPassword = field.type === 'password';
+
+          // Toggle between 'password' and 'text'
+          field.type = isPassword ? 'text' : 'password';
+
+          // Change the icon class between eye and eye-slash
+          icon.classList.toggle('fa-lock-open', isPassword);
+          icon.classList.toggle('fa-lock', !isPassword);
+        }
+
+        document.getElementById("toggle-password").addEventListener("click", function() {
+          togglePassword("password-input", this);
+        });
+
+        document.getElementById("toggle-password-signup").addEventListener("click", function() {
+          togglePassword("password-input-signup", this);
+        });
+
+        // Check password strength
+        function checkPasswordStrength() {
+          const password = document.querySelector(".sign-up-form input[type='password']").value;
+          const strengthWeak = document.getElementById('strength-weak');
+          const strengthMedium = document.getElementById('strength-medium');
+          const strengthStrong = document.getElementById('strength-strong');
+
+          let strength = 0;
+
+          if (password.length >= 8) strength++;
+          if (password.match(/[A-Z]/)) strength++;
+          if (password.match(/[a-z]/)) strength++;
+          if (password.match(/[0-9]/)) strength++;
+          if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+          strengthWeak.style.display = strength >= 1 ? 'block' : 'none';
+          strengthMedium.style.display = strength === 2 ? 'block' : 'none';
+          strengthStrong.style.display = strength === 3 ? 'block' : 'none';
+        }
+
+        // Add event listener for password input field to check strength
+        document.querySelector(".sign-up-form input[type='password']").addEventListener('input', checkPasswordStrength);
+      </script>
+
+          // Validate inputs
+          if (username === "" || email === "" || password === "") {
+            alert("Please fill in all fields");
+            return;
+          }
+
+          // Generate a UUID
+          const userId = uuid.v4();
+          console.log("Generated UUID:", userId);
+
+          const data = JSON.stringify({
+            id: userId,
+            username,
+            email,
+            password,
+          });
+          console.log(data);
+
+          // Uncomment the below code when MongoDB is ready
+          /*
+          try {
+            const response = await fetch("http://localhost:3000/signup", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: data,
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              throw new Error(errorData.message || "Signup failed");
+            }
+
+            const result = await response.json();
+            console.log("Server response:", result);
+
+            alert("Signup successful!");
+            window.location.href = "login.html";
+          } catch (error) {
+            alert(error.message);
+            console.error("Error during signup:", error);
+          }
+          */
+        });
+
+      // Toggle password visibility
+      function togglePassword(fieldId, icon) {
+        const field = document.getElementById(fieldId);
+        const isPassword = field.type === "password";
+
+        // Toggle between 'password' and 'text'
+        field.type = isPassword ? "text" : "password";
+
+        // Change the icon class between eye and eye-slash
+        icon.classList.toggle("fa-lock-open", isPassword);
+        icon.classList.toggle("fa-lock", !isPassword);
+      }
+
+      document
+        .getElementById("toggle-password")
+        .addEventListener("click", function () {
+          togglePassword("password-input", this);
+        });
+
+      document
+        .getElementById("toggle-password-signup")
+        .addEventListener("click", function () {
+          togglePassword("password-input-signup", this);
+        });
+
+      // Check password strength
+      function checkPasswordStrength() {
+        const password = document.querySelector(
+          ".sign-up-form input[type='password']"
+        ).value;
+        const strengthWeak = document.getElementById("strength-weak");
+        const strengthMedium = document.getElementById("strength-medium");
+        const strengthStrong = document.getElementById("strength-strong");
+
+        let strength = 0;
+
+        if (password.length >= 8) strength++;
+        if (password.match(/[A-Z]/)) strength++;
+        if (password.match(/[a-z]/)) strength++;
+        if (password.match(/[0-9]/)) strength++;
+        if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+        strengthWeak.className = "";
+        strengthMedium.className = "";
+        strengthStrong.className = "";
+
+        if (strength >= 1) strengthWeak.className = "weak";
+        if (strength >= 3) strengthMedium.className = "medium";
+        if (strength >= 5) strengthStrong.className = "strong";
+      }
+
+      document
+        .querySelector(".sign-up-form input[type='password']")
+        .addEventListener("input", checkPasswordStrength);
+    </script>
+    <script>
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e",
+      ];
+
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+
+          circle.style.scale = (circles.length - index) / circles.length;
+
+          circle.x = x;
+          circle.y = y;
+
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+      }
+
+      animateCircles();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="stylesheet" href="src/css/up.css" />
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "en",
+            "detect_browser_language": true,
+            "wrapper_selector": ".gtranslate_wrapper"
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <div id="preloader">
+        <div class="wrapper">
+            <div class="box-wrap">
+                <div class="box one"></div>
+                <div class="box two"></div>
+                <div class="box three"></div>
+                <div class="box four"></div>
+                <div class="box five"></div>
+                <div class="box six"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Sign In Form -->
+                <!-- <form class="sign-in-form" id="signInForm">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock" id="toggle-password"></i>
+                        <input type="password" placeholder="Password" id="password-input" required />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon" onclick="socialLogin('google')"><i class="fab fa-google" style="font-size: 24px; color: #4285f4"></i></a>
+                        <a href="#" class="social-icon" onclick="socialLogin('facebook')"><i class="fab fa-facebook-f" style="font-size: 24px; color: #4267b2"></i></a>
+                        <a href="#" class="social-icon" onclick="socialLogin('github')"><i class="fab fa-github" style="font-size: 24px; color: #333"></i></a>
+                    </div>
+                </form>
+
+                <!-- Sign Up Form -->
+                <!-- <form class="sign-up-form" id="signUpForm">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock" id="toggle-password-signup"></i>
+                        <input type="password" placeholder="Password" id="password-input-signup" required />
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here?</h3>
+                    <p>Discover new experiences with AmbuFlow! <br />Get access to exclusive content and features. <br />Create your account.</p>
+                    <button class="btn transparent" id="sign-up-btn">Sign up</button>
+                </div>
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us?</h3>
+                    <p>Welcome to our community</p>
+                    <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="preloader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+    <script>
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+
+        // Toggle between sign up and sign in
+        sign_up_btn.addEventListener("click", () => {
+            container.classList.add("sign-up-mode");
+        });
+
+  </script>
+  <script>
+     sign_in_btn = document.querySelector("#sign-in-btn");
+     sign_up_btn = document.querySelector("#sign-up-btn");
+     container = document.querySelector(".container");
+
+
+        sign_in_btn.addEventListener("click", () => {
+            container.classList.remove("sign-up-mode");
+        });
+
+        // Sign in form submission
+        document.getElementById("signInForm").addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = this.querySelector("input[type='text']").value;
+            const password = this.querySelector("input[type='password']").value;
+
+            // Retrieve stored credentials
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            // Validate input against stored credentials
+            if (username === storedUsername && password === storedPassword) {
+                alert('Login successful!');
+                window.location.href = 'index.html'; // Redirect to homepage after successful login
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        // Sign up form submission
+        document.getElementById("signUpForm").addEventListener('submit', function (event) {
+            event.preventDefault();
+
+
+            const username = this.querySelector("input[type='text']").value;
+            const email = this.querySelector("input[type='email']").value;
+            const password = this.querySelector("input[type='password']").value;
+
+            if (username === '' || email === '' || password === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+
+       username = document.querySelector(".sign-in-form input[type='text']").value;
+       password = document.querySelector(".sign-in-form input[type='password']").value;
+
+      // Retrieve stored credentials
+       storedUsername = localStorage.getItem('username');
+       storedPassword = localStorage.getItem('password');
+
+
+            // Store the username and password in localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            alert('Your account is created successfully. Please login to access the website.');
+            container.classList.remove("sign-up-mode"); // Switch to sign in mode
+        });
+
+        // Social media authentication (Dummy function for demo purposes)
+        function socialLogin(platform) {
+            // Here you would typically initiate the OAuth process for the given platform
+            switch (platform) {
+                case 'google':
+                    alert('Successfully login with Google..');
+                    window.location.href = 'index.html';
+                    // Add your Google OAuth logic here
+                    break;
+                case 'facebook':
+                    alert('Successfully login with Facebook...');
+                    window.location.href = 'index.html';
+                    // Add your Facebook OAuth logic here
+                    break;
+                case 'github':
+                    alert('Successfully login with GitHub...');
+                    window.location.href = 'index.html';
+                    // Add your GitHub OAuth logic here
+                    break;
+                default:
+                    alert('Unknown platform');
+                    break;
+            }
+        }
+
+
+        // Toggle password visibility
+        function togglePassword(fieldId, icon) {
+            const field = document.getElementById(fieldId);
+            field.type = field.type === 'password' ? 'text' : 'password';
+            icon.classList.toggle('fa-lock-open');
+            icon.classList.toggle('fa-lock');
+        }
+
+       username = document.querySelector(".sign-up-form input[type='text']").value;
+       email = document.querySelector(".sign-up-form input[type='email']").value;
+       password = document.querySelector(".sign-up-form input[type='password']").value;
+
+
+        document.getElementById("toggle-password").addEventListener("click", function () {
+            togglePassword("password-input", this);
+        });
+
+        document.getElementById("toggle-password-signup").addEventListener("click", function () {
+            togglePassword("password-input-signup", this);
+        });
+
+        // Circle animation
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+        const colors = [
+            "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e",
+            "#ec805d", "#e36e5c", "#df685c", "#d5585c", "#d1525c",
+            "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f",
+            "#950f5f", "#830060", "#7c0060", "#680060", "#60005f",
+            "#48005f", "#3d005e",
+        ];
+
+        // Set up circle colors and positions
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Track mouse movement
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        }); -->
+
+
+
+        // Animate circles based on mouse position
+        <!-- function animateCircles() {
+
+    // Toggle password visibility
+    function togglePassword(fieldId, icon) {
+       field = document.getElementById(fieldId);
+      field.type = field.type === 'password' ? 'text' : 'password';
+      icon.classList.toggle('fa-lock-open');
+      icon.classList.toggle('fa-lock');
+    }
+
+    document.getElementById("toggle-password").addEventListener("click", function () {
+      togglePassword("password-input", this);
+    });
+
+    document.getElementById("toggle-password-signup").addEventListener("click", function () {
+      togglePassword("password-input-signup", this);
+    });
+
+    // Circle animation
+     coords = { x: 0, y: 0 };
+     circles = document.querySelectorAll(".circle");
+     colors = [
+      "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e",
+      "#ec805d", "#e36e5c", "#df685c", "#d5585c", "#d1525c",
+      "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f",
+      "#950f5f", "#830060", "#7c0060", "#680060", "#60005f",
+      "#48005f", "#3d005e",
+    ];
+
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+
+    function animateCircles() {
+
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+         nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+
+      requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+  </script>
+</body>
+
+</html>  --> --> -->

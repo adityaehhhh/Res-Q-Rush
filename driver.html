@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="src/css/driver.css">
+    <link rel="stylesheet" href="src/css/manage.css">
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.19.0/maps/maps-web.min.js"></script>
+    <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.19.0/maps/maps.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #map {
+            width: 100%;
+            height: 320px;
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        #driverImage {
+            height: 320px;
+            margin-bottom: 20px;
+        }
+
+        /* Loading Spinner */
+        #loadingSpinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="./images/manageLogo.png"></img>
+                <h2 style="display: flex;">Res-<p style="color: #3DBDEC;">Q-Rush</p></h2>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="hospital.html">Dashboard</a></li>
+                <li><a href="manage.html">Manage Status</a></li>
+                <li><a href="driver.html">Manage Driver</a></li>
+                <li><a href="ambtracker.html">Manage Ambulance</a></li>
+                <li id="logout"><a href="#" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+            </ul>
+            <div class="resp" style="margin-right: 50px;">
+                <button id="dropdown"><i class="fa-solid fa-bars"></i></button>
+                <li id="logout"><a href="#" onclick="logout()"><i class="fa-solid fa-right-from-bracket" style="color: white;"></i></a></li>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Dropdown -->
+    <div class="dropdown-menu">
+        <ul class="navbar-links2">
+            <li><a href="hospital.html">Dashboard</a></li>
+            <li><a href="manage.html">Manage Status</a></li>
+            <li><a href="driver.html">Manage Driver</a></li>
+            <li><a href="ambtracker.html">Manage Ambulance</a></li>
+        </ul>
+     </div>
+
+    <div class="dashboard-container">
+        <h1>Welcome, <span id="driverName">Driver ___</span></h1>
+        <p id="status">You are currently: <strong id="availability">OFF DUTY</strong></p>
+        
+        <!-- Driver Image -->
+        <img src="driver-status-off.jpg" alt="Driver Image" id="driverImage">
+        
+        <!-- TomTom Map -->
+        <div id="map"></div>
+        
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner">Loading...</div>
+        
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="availabilityToggle">
+                <span class="slider"></span>
+            </label>
+            <p>Availability</p>
+        </div>
+    </div>
+
+    <script>
+        let map, driverMarker;
+        const availabilityToggle = document.getElementById('availabilityToggle');
+        const availabilityText = document.getElementById('availability');
+        const statusText = document.getElementById('status');
+        const driverName = document.getElementById('driverName');
+        const driverImage = document.getElementById('driverImage');
+        const mapElement = document.getElementById('map');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+
+        const apiKey = "F1rrGQCS9lK5NTmyULz2GzhyeTyVc6cS";  // Replace with your actual TomTom API Key
+
+        // Function to initialize TomTom Map
+        function initMap() {
+            loadingSpinner.style.display = "block";  // Show spinner
+            mapElement.style.display = "block";
+
+            map = tt.map({
+                key: apiKey,
+                container: "map",
+                center: { lat: 28.7, lng: 77.1 }, // Example Location
+                zoom: 14
+            });
+
+            driverMarker = new tt.Marker().setLngLat([77.1, 28.7]).addTo(map);
+            loadingSpinner.style.display = "none"; // Hide spinner after map loads
+        }
+
+        // Set initial values
+        driverName.textContent = "XYZ";  // Example driver name
+        let isAvailable = false;
+
+        // Toggle availability function
+        availabilityToggle.addEventListener('change', () => {
+            isAvailable = availabilityToggle.checked;
+
+            if (isAvailable) {
+                availabilityText.textContent = "ON DUTY";
+                statusText.style.color = "green";
+                driverImage.style.display = "none"; // Hide the image
+                mapElement.style.display = "block"; // Show the map
+                initMap(); // Initialize the map
+            } else {
+                availabilityText.textContent = "OFF DUTY";
+                statusText.style.color = "red";
+                mapElement.style.display = "none"; // Hide the map
+                driverImage.style.display = "block"; // Show the image
+            }
+        });
+
+        // Function to update driver's location dynamically
+        function updateDriverLocation() {
+            if (!isAvailable) return; // Only update if the driver is on duty
+
+            // Simulating real-time location updates
+            const newLat = 28.7 + (Math.random() * 0.001 - 0.0005);
+            const newLng = 77.1 + (Math.random() * 0.001 - 0.0005);
+            const newPosition = [newLng, newLat];
+
+            driverMarker.setLngLat(newPosition);
+            map.flyTo({ center: newPosition, essential: true });
+        }
+
+        // Update location every 5 seconds
+        setInterval(updateDriverLocation, 5000);
+
+        function logout() {
+            const confirmLogout = confirm('Are you sure you want to logout?');
+            if (confirmLogout) {
+                localStorage.removeItem('userID');
+                localStorage.removeItem('JWTtoken');
+                window.location.href = 'index.html';
+                alert("Logged out successfully!");
+            }
+        }  
+
+        // Dropdown
+        let flag = false;
+        document.getElementById('dropdown').addEventListener('click', () => {
+            const dropdown = document.querySelector('.dropdown-menu');
+            dropdown.style.display = flag ? 'none' : 'block';
+            flag = !flag;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Ambulance</title>
+    <!-- TomTom Maps SDK for Web -->
+    <link rel="stylesheet" type="text/css" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css"/>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/services/services-web.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #000;
+            --header-bg: #343a40;
+            --header-text: white;
+            --card-bg: white;
+            --cart-bg: #28a745;
+            --button-bg: #007bff;
+            --button-hover: #0056b3;
+            --cart-count-bg: #ffc107;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #fff;
+            --header-bg: #1e1e1e;
+            --header-text: #bbb;
+            --card-bg: #222;
+            --cart-bg: #6ac36a;
+            --button-bg: #4a90e2;
+            --button-hover: #3673c7;
+            --cart-count-bg: #f3b61f;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            font-size: 24px;
+            transition: opacity 0.3s ease;
+        }
+
+        .header.hidden {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .toggle-theme {
+            background: var(--cart-bg);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .toggle-theme:hover {
+            background: #45a049;
+        }
+
+        .cart {
+            font-size: 18px;
+            background-color: var(--cart-bg);
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        #map {
+            width: 50%;
+            height: 400px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        #map.fullscreen {
+            width: 100vw; /* Use viewport width */
+            height: 100vh; /* Use viewport height */
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .main-image-subtext {
+            font-size: 18px;
+            margin-top: 10px;
+            color: var(--text-color);
+            transition: opacity 0.3s ease;
+        }
+
+        .main-image-subtext.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-container.hidden {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            margin: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.02);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: var(--cart-bg);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cart-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-to-cart, .remove-from-cart {
+            padding: 10px 15px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .add-to-cart {
+            background-color: var(--button-bg);
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--button-hover);
+        }
+
+        .remove-from-cart {
+            background-color: #dc3545;
+        }
+
+        .remove-from-cart:hover {
+            background-color: #b02a37;
+        }
+
+        .cart-count {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px 10px;
+            background-color: var(--cart-count-bg);
+            border-radius: 5px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        #timer {
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1001;
+            transition: opacity 0.3s ease;
+        }
+
+        #timer.hidden {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            transition: opacity 0.3s ease;
+        }
+
+        h1.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #map-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1001;
+        }
+
+        #map.fullscreen #map-info {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>Modular Ambulance Services</div>
+        <button class="toggle-theme">🌙 Dark Mode</button>
+        <div class="cart">Cart: <span id="cart-total">0</span></div>
+    </div>
+
+    <div id="timer">Time remaining: 30s</div>
+
+    <h1>Your Nearest Vehicle: Mahindra XUV 300</h1>
+
+    <div id="map">
+        <div id="map-info">
+            <span id="map-distance"></span> | <span id="map-duration"></span>
+        </div>
+    </div>
+    <div class="main-image-subtext">
+        Driver Name: Aditya Tiwari <br>
+        Car No. "DLXX90212", Contact: <a href="tel:9876543210">9876543210</a><br>
+        <span id="distance"></span> | <span id="duration"></span>
+    </div>
+
+    <h1>All Available Medical Equipments :-</h1>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="https://imgs.search.brave.com/BPYSQYmNAQMLkX1FfE6bl_xA1LzArj4zlNFlXcxQyyc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9uaHNi/dGRiZS5ibG9iLmNv/cmUud2luZG93cy5u/ZXQvdW1icmFjby1h/c3NldHMtY29ycC8y/MzEzNC9kXzEwNjk3/LmpwZz93aWR0aD0z/MjAmaGVpZ2h0PTIx/Mw" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Blood Bottle</div>
+                <div class="product-price">Rs. 1,100</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://imgs.search.brave.com/bYxisnXjoHUOi7YPK5L7n4x96bA9BemzZYU81vVkSw8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0Q0/RDEyQVFFcmtlYXh3/YXF5OWcvYXJ0aWNs/ZS1jb3Zlcl9pbWFn/ZS1zaHJpbmtfNzIw/XzEyODAvMC8xNjYy/NTUxMDUyMzExP2U9/MjE0NzQ4MzY0NyZ2/PWJldGEmdD1WclF3/dWdvMmlSZjlMWHBu/eGpNbm1wa1lyR2dl/RTRUR2htOXM5MmlH/V0g0" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Fracture</div>
+                <div class="product-price">Rs. 199 - Rs.1,990</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://imgs.search.brave.com/S9B2PSejrjpyVjmgTmW3h8JIr-JO1g35A8Mtz5dckqg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzUyLzc0LzQx/LzM2MF9GXzUyNzQ0/MTk3X0Iwb2NNZEVv/bXlyVGNrUlVPdk9O/VGlpcXdKR01xNWNy/LmpwZw" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Defibrillator</div>
+                <div class="product-price">Rs. 80,000</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://imgs.search.brave.com/ASeRPkE6q9Djo4UEieV64uHvnxjxx-478oDIwicQL34/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by8zZC1yZW5kZXJp/bmctbWVkaWNhbC12/ZW50aWxhdG9yLW1h/Y2hpbmUtaG9zcGl0/YWxfNDkzODA2LTU2/Mi5qcGc_c2VtdD1h/aXNfaHlicmlk" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Ventilator Machine</div>
+                <div class="product-price">Rs. 22,000 - 45,000</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/bleed-control.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Bleeding Control Kit</div>
+                <div class="product-price">Rs. 300 - 500</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/pneumo-needle.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">TPAK</div>
+                <div class="product-price">Rs. 99</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/sof4-tq.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">SOF&reg; Tourniquet<br />4<sup>th</sup> Generation</div>
+                <div class="product-price">Rs. 2800</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/thermal-blanket.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Thermal Blanket</div>
+                <div class="product-price">Rs. 699</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/saline-lock.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Saline Lock Kit</div>
+                <div class="product-price">Rs. 399</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/chest-seal.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Vented Chest Seal</div>
+                <div class="product-price">Rs. 899</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/pov-pad.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Povidone Pad</div>
+                <div class="product-price">Rs. 79</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/laryngoscopy.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Laryngoscopy Set</div>
+                <div class="product-price">Rs. 2999</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/litter-carrier.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Litter Carrier</div>
+                <div class="product-price">Rs. 5800</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/israeli-bandage.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Israeli Bandage</div>
+                <div class="product-price">Rs. 499</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/emerg-station.png" alt="Product">
+            <div class="product-info">
+                <div class="product-name">Trauma Kit</div>
+                <div class="product-price">Rs. 999</div>
+                <div class="cart-controls">
+                    <button class="add-to-cart">Add</button>
+                    <span class="cart-count">0</span>
+                    <button class="remove-from-cart">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cartTotal = 0;
+
+        document.querySelectorAll('.product-card').forEach((card) => {
+            const addButton = card.querySelector('.add-to-cart');
+            const removeButton = card.querySelector('.remove-from-cart');
+            const countDisplay = card.querySelector('.cart-count');
+
+            let count = 0;
+
+            addButton.addEventListener('click', () => {
+                count++;
+                cartTotal++;
+                countDisplay.textContent = count;
+                document.getElementById('cart-total').textContent = cartTotal;
+            });
+
+            removeButton.addEventListener('click', () => {
+                if (count > 0) {
+                    count--;
+                    cartTotal--;
+                    countDisplay.textContent = count;
+                    document.getElementById('cart-total').textContent = cartTotal;
+                }
+            });
+        });
+
+        document.querySelector('.toggle-theme').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Timer functionality
+        let timeLeft = 30; // 30 seconds
+        const timerDisplay = document.getElementById('timer');
+        const productContainer = document.querySelector('.product-container');
+        const mapElement = document.getElementById('map');
+        const header = document.querySelector('.header');
+        const subtext = document.querySelector('.main-image-subtext');
+        const headings = document.querySelectorAll('h1');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = `Time remaining: ${timeLeft}s`;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerDisplay.classList.add('hidden');
+                productContainer.classList.add('hidden');
+                header.classList.add('hidden');
+                subtext.classList.add('hidden');
+                headings.forEach(h => h.classList.add('hidden'));
+                mapElement.classList.add('fullscreen');
+                // Force map resize after transition
+                setTimeout(() => {
+                    map.resize();
+                }, 500);
+            }
+        }, 1000);
+
+        // TomTom Map Initialization
+        let map; // Declare map variable in broader scope
+        function initMap() {
+            const yourLocation = [77.2090, 28.6139]; // [lng, lat] - e.g., Delhi
+            const driverLocation = [77.22921006673387, 28.61071762977465]; // [lng, lat] - e.g., Noida
+
+            // Initialize the map
+            map = tt.map({
+                key: 'F1rrGQCS9lK5NTmyULz2GzhyeTyVc6cS', 
+                container: 'map',
+                center: yourLocation,
+                zoom: 12
+            });
+
+            // Add markers
+            new tt.Marker().setLngLat(yourLocation).setPopup(new tt.Popup().setHTML("Your Location")).addTo(map);
+            new tt.Marker().setLngLat(driverLocation).setPopup(new tt.Popup().setHTML("Driver")).addTo(map);
+
+            // Calculate and display route
+            tt.services.calculateRoute({
+                key: 'F1rrGQCS9lK5NTmyULz2GzhyeTyVc6cS', 
+                locations: `${yourLocation[0]},${yourLocation[1]}:${driverLocation[0]},${driverLocation[1]}`
+            }).then(function(response) {
+                const geojson = response.toGeoJson();
+                map.addLayer({
+                    'id': 'route',
+                    'type': 'line',
+                    'source': {
+                        'type': 'geojson',
+                        'data': geojson
+                    },
+                    'paint': {
+                        'line-color': '#FF0000', // Red path
+                        'line-width': 4
+                    }
+                });
+
+                // Fit map to route bounds
+                const bounds = new tt.LngLatBounds();
+                geojson.features[0].geometry.coordinates.forEach(function(coord) {
+                    bounds.extend(coord);
+                });
+                map.fitBounds(bounds, { padding: 50 });
+
+                // Display distance and duration
+                const routeData = response.routes[0].summary;
+                const distanceText = `Distance: ${(routeData.lengthInMeters / 1000).toFixed(2)} km`;
+                const durationText = `ETA: ${Math.ceil(routeData.travelTimeInSeconds / 60)} min`;
+                
+                // Update both regular and map info
+                document.getElementById('distance').textContent = distanceText;
+                document.getElementById('duration').textContent = durationText;
+                document.getElementById('map-distance').textContent = distanceText;
+                document.getElementById('map-duration').textContent = durationText;
+            }).catch(function(error) {
+                console.error('Error calculating route:', error);
+            });
+        }
+
+        // Load map when the page is ready
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+
+</body>
+</html>

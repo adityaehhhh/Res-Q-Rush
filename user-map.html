@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital on Map</title>
+    <link rel="stylesheet" href="src/css/user-map.css">
+    <link rel="shortcut icon" href="ambulance.png" type="image/x-icon">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKR3agIMLtauzDhz4fCu3heww0BV_81H4&libraries=places"></script>
+    <style>
+        /* Add some basic styles for the search bar */
+        #searchContainer {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #searchButton {
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospitals</h1>
+        <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search for hospitals or pharmacies" />
+            <button id="searchButton">Search</button>
+        </div>
+        <div id="map" style="height: 500px; width: 100%;"></div>
+        <button id="viewListBtn">Back to List</button>
+    </div>
+
+    <script>
+        let map;
+        let service;
+        let markers = []; // Array to hold markers
+
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: userLocation,
+                        zoom: 14
+                    });
+
+                    service = new google.maps.places.PlacesService(map);
+                    searchNearby(userLocation);
+                }, () => {
+                    console.error('Error getting user location.');
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function searchNearby(location) {
+            const request = {
+                location: location,
+                radius: '5000',
+                type: ['hospital', 'pharmacy']
+            };
+
+            service.nearbySearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    clearMarkers(); // Clear previous markers
+                    results.forEach(place => {
+                        addMarker(place);
+                    });
+                } else {
+                    console.error('Places request failed due to: ' + status);
+                }
+            });
+        }
+
+        function addMarker(place) {
+            const marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                title: place.name
+            });
+
+            const infoWindow = new google.maps.InfoWindow();
+            google.maps.event.addListener(marker, 'click', () => {
+                infoWindow.setContent(`
+                    <div>
+                        <h3>${place.name}</h3>
+                        <p><strong>Address:</strong> ${place.vicinity}</p>
+                        <p><strong>Rating:</strong> ${place.rating ? place.rating : 'No rating'}</p>
+                    </div>
+                `);
+                infoWindow.open(map, marker);
+            });
+
+            markers.push(marker); // Store the marker in the array
+        }
+
+        function clearMarkers() {
+            markers.forEach(marker => {
+                marker.setMap(null); // Remove marker from map
+            });
+            markers = []; // Clear the array
+        }
+
+        function searchForHospital() {
+            const searchTerm = document.getElementById("searchInput").value;
+            const request = {
+                location: map.getCenter(),
+                radius: '5000', // Search within 5 km
+                keyword: searchTerm
+            };
+
+            service.nearbySearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    clearMarkers(); // Clear previous markers
+                    results.forEach(place => {
+                        addMarker(place);
+                    });
+                } else {
+                    alert('No results found. Please try a different search.');
+                }
+            });
+        }
+
+        document.getElementById('searchButton').addEventListener('click', searchForHospital);
+        document.getElementById('viewListBtn').addEventListener('click', () => {
+            window.location.href = 'user.html';
+        });
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>
