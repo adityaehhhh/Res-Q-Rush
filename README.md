@@ -30,12 +30,9 @@
 - [Solution](#solution)
 - [Key Features](#key-features)
 - [Contributing](#contributing)
-- [Contribution Guidelines](#contribution-guidelines)
 - [Tech Stack](#tech-stack)
 - [User-Friendly Experience](#user-friendly-experience)
 - [Future Enhancements](#future-enhancements)
-- [Our Valuable Contributors](#our-valuable-contributors)
-- [Team](#team)
 
 ## DESCRIPTION
 An application that helps users find nearby hospitals and track ambulances in real-time. It shows hospital locations, provides directions, and helps manage ambulance routes based on traffic and distance.
@@ -88,7 +85,7 @@ We welcome all contributions from the open-source community! If you'd like to co
 
 1. **Fork the repository**:
 ```bash
-git clone https://github.com/yourusername/AmbuFlow.git
+git clone https://github.com/yourusername/Res-Q-Rush.git
 ```
 
 2. **Create a new feature branch**:
